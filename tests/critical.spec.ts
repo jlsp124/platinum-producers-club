@@ -78,6 +78,7 @@ test("loads real Mux testimonial media on demand and leaves other players dorman
   await videos.first().scrollIntoViewIfNeeded();
   await videos.first().locator("[data-player-open]").click();
   await expect(videos.first().locator("iframe")).toHaveAttribute("src", /JdlyyKMnxXeNXeYKQxuEhXVmBYqPWg3LQZvkj1imbsY/);
+  await expect(videos.first().locator("iframe")).toHaveAttribute("src", /accent-color=%236841cc/);
   await expect(videos.nth(1).locator("iframe")).toHaveCount(0);
   await expect(videos.nth(2).locator("iframe")).toHaveCount(0);
 });
