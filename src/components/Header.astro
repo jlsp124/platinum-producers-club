@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import ppcLogo from "../assets/source/current-01.png";
+import StrategyLink from "./StrategyLink.astro";
+import { withBase } from "../lib/urls";
+
+interface Props {
+  solid?: boolean;
+}
+
+const { solid = false } = Astro.props;
+
+const navItems = [
+  { href: withBase("/#method"), label: "Method" },
+  { href: withBase("/#results"), label: "Results" },
+  { href: withBase("/#terence"), label: "Terence" },
+  { href: withBase("/#faq"), label: "FAQ" }
+];
+---
+
+<header class:list={["site-header", { "site-header--solid": solid }]} data-site-header>
+  <a class="site-header__brand" href={withBase("/")} aria-label="Platinum Producers Club home">
+    <Image
+      src={ppcLogo}
+      alt="Platinum Producers Club"
+      width={270}
+      quality={95}
+      loading="eager"
+      decoding="sync"
+    />
+  </a>
+
+  <nav class="site-header__nav" aria-label="Primary navigation">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+
+  <div class="site-header__desktop-action">
+    <StrategyLink className="header-cta" label="Strategy call" context="header" />
+  </div>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    aria-label="Open navigation"
+    data-menu-toggle
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
+    <nav aria-label="Mobile navigation">
+      {navItems.map((item, index) => (
+        <a href={item.href} data-menu-link>
+          <span>0{index + 1}</span>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <StrategyLink className="button button--primary mobile-menu__cta" context="mobile-menu" />
+    <p>Private production mentorship with Terence Lam.</p>
+  </div>
+</header>
+

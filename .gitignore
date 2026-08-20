@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+Thumbs.db
+playwright-report/
+test-results/
+reports/lighthouse/*.html
+reports/lighthouse/*.json
+*.log
+.env
+.env.*
+!.env.example
+

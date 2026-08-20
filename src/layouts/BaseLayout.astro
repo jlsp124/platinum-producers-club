@@ -1,0 +1,67 @@
+---
+import "@fontsource-variable/archivo/standard.css";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+import { withBase } from "../lib/urls";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogType?: "website" | "article";
+  bodyClass?: string;
+  hideFooter?: boolean;
+}
+
+const {
+  title = "Platinum Producers Club — Private Music Production Mentorship",
+  description = "Private music-production mentorship with Terence Lam for producers ready to replace trial-and-error with focused feedback and a clearer path to finished music.",
+  canonicalPath = "/",
+  ogType = "website",
+  bodyClass = "",
+  hideFooter = false
+} = Astro.props;
+
+const isProduction = import.meta.env.PUBLIC_SITE_MODE === "production";
+const canonical = new URL(canonicalPath, site.productionUrl).toString();
+const socialImage = new URL(withBase("/social/ppc-social.jpg"), Astro.site ?? site.productionUrl).toString();
+---
+
+<!doctype html>
+<html lang="en" class="no-js" data-site-mode={isProduction ? "production" : "preview"}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#090A0B" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content={isProduction ? "index,follow,max-image-preview:large" : "noindex,nofollow,noarchive"} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase("/favicon-32.png")} />
+    <link rel="apple-touch-icon" sizes="180x180" href={withBase("/apple-touch-icon.png")} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Terence Lam in the studio for Platinum Producers Club" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script is:inline>document.documentElement.className = "js";</script>
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+    <slot />
+    {!hideFooter && <Footer />}
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>
+

@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import ArrowIcon from "../components/ArrowIcon.astro";
+import { withBase } from "../lib/urls";
+---
+
+<BaseLayout title="Page not found — Platinum Producers Club" description="The requested page could not be found." hideFooter>
+  <Header solid />
+  <main id="main-content" class="not-found">
+    <div class="page-shell">
+      <p class="section-index"><span>404</span> Off the grid</p>
+      <h1>404</h1>
+      <div class="not-found__row">
+        <p>That page is not in this arrangement.</p>
+        <a class="button button--ink" href={withBase("/")}>Return to the homepage <ArrowIcon /></a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+

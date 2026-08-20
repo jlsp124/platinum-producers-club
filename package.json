@@ -1,0 +1,37 @@
+{
+  "name": "platinum-producers-club",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "assets:generate": "node scripts/generate-static-assets.mjs",
+    "prebuild": "npm run assets:generate",
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "npm run check && astro build",
+    "preview": "astro preview",
+    "test": "npm run build && playwright test",
+    "test:e2e": "playwright test",
+    "test:headed": "playwright test --headed",
+    "screenshots": "node scripts/capture-qa-screenshots.mjs",
+    "validate:html": "html-validate \"dist/**/*.html\"",
+    "validate:pages": "node scripts/validate-pages-build.mjs",
+    "qa": "npm run build && npm run validate:html && playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "5.3.0",
+    "astro": "7.2.4",
+    "sharp": "0.35.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.62.1",
+    "html-validate": "11.8.0",
+    "lighthouse": "13.4.1",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

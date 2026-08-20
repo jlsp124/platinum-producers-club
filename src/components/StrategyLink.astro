@@ -1,0 +1,26 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+import { site } from "../data/site";
+
+interface Props {
+  className?: string;
+  label?: string;
+  context?: string;
+}
+
+const {
+  className = "button button--primary",
+  label = "Book a strategy call",
+  context = "strategy-call"
+} = Astro.props;
+---
+
+<a
+  class:list={[className, "js-calendly"]}
+  href={site.calendlyUrl}
+  data-calendly-context={context}
+>
+  <span>{label}</span>
+  <ArrowIcon />
+</a>
+
