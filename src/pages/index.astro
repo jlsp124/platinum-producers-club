@@ -3,399 +3,383 @@ import { Image, Picture } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import StrategyLink from "../components/StrategyLink.astro";
-import ArrowIcon from "../components/ArrowIcon.astro";
-import VideoDialog from "../components/VideoDialog.astro";
 import heroPoster from "../assets/source/mentor-video-poster.jpg";
 import terencePortrait from "../assets/source/current-05.png";
 import abletonCredential from "../assets/source/current-06.png";
 
-const testimonials = [
+const problems = [
   {
-    name: "Ashtyn Keith",
-    date: "March 26, 2026",
-    headline: "Clear, individual direction without the overwhelm.",
-    quote:
-      "Terence takes the time to ensure any and all questions you have are answered. His explanations are clear and concise, and he’s really good at giving you bite-sized steps based on your needs."
+    title: "Tutorial overload",
+    copy: "You can watch hours of advice and still not know which choice is weakening your track."
   },
   {
-    name: "Grace Leeswadtrakul",
-    date: "September 26, 2025",
-    headline: "A different way to approach the work.",
-    quote:
-      "His feedback is detailed, honest, and easy to apply. Because of his guidance, I’ve improved my workflow, grown my skills, and gained confidence in myself."
+    title: "Unfinished sessions",
+    copy: "Ideas keep starting, but the same uncertainty shows up when it is time to arrange, refine, and finish."
   },
   {
-    name: "Kim P.",
-    date: "February 15, 2026",
-    headline: "From zero experience to finished music.",
-    quote:
-      "I went from having zero experience to creating four whole, different beats and even a full, polished song with vocals. His individually curated plan was exactly what I needed to cut through the noise."
-  },
-  {
-    name: "Michell",
-    date: "January 27, 2026",
-    headline: "A mentor who listens for what matters.",
-    quote:
-      "He’s really good at pinpointing focus areas of improvement. You can tell that he genuinely cares about helping his students make great music."
+    title: "More gear, same bottleneck",
+    copy: "A new plugin cannot replace trained judgement, an outside ear, or a clear next move."
   }
+];
+
+const mentorshipBenefits = [
+  "Detailed feedback on the music you are actually making",
+  "Individual direction instead of another generic tutorial path",
+  "Specific next steps you can take back into the session",
+  "Workflow guidance that helps you make decisions and keep moving",
+  "Accountability and perspective as your tracks develop"
 ];
 
 const methodSteps = [
   {
-    number: "01",
-    label: "Listen",
-    title: "Hear the whole track.",
-    copy:
-      "Start with the music you are actually making—your choices, your workflow, your references and the point where progress keeps stalling."
+    title: "Bring your music.",
+    copy: "Start with your real sessions, references, questions, and the point where progress keeps stalling."
   },
   {
-    number: "02",
-    label: "Focus",
-    title: "Find the decision that matters next.",
-    copy:
-      "Instead of another fifty tutorials, focus on the highest-value move in front of you: arrangement, sound choice, energy, workflow or finish."
+    title: "Find the bottleneck.",
+    copy: "Terence listens for the decision with the highest value—whether it is arrangement, sound choice, energy, workflow, or finish."
   },
   {
-    number: "03",
-    label: "Develop",
-    title: "Apply feedback you can hear.",
-    copy:
-      "Turn detailed notes into practical, bite-sized changes. The work moves at the pace of your progress—not a generic content calendar."
+    title: "Get focused direction.",
+    copy: "Turn detailed feedback into practical changes and a clear plan for what to work on next."
   },
   {
-    number: "04",
-    label: "Finish",
-    title: "Complete with intention.",
-    copy:
-      "Build the judgement and repeatable process to move ideas toward complete, polished music you are ready to stand behind."
+    title: "Apply it and finish stronger.",
+    copy: "Use the feedback in your own music while building judgement you can carry into the next record."
   }
+];
+
+const videoTestimonials = [
+  {
+    name: "Cedrick",
+    context: "Producer · video testimonial",
+    note: "In his written review, Cedrick said he completed the mentorship with greater confidence and tools to keep improving.",
+    poster: "https://image.mux.com/JdlyyKMnxXeNXeYKQxuEhXVmBYqPWg3LQZvkj1imbsY/thumbnail.jpg?time=19.449666666666666&width=900",
+    player: "https://player.mux.com/JdlyyKMnxXeNXeYKQxuEhXVmBYqPWg3LQZvkj1imbsY?metadata-video-title=Cedrick%20testimonial&accent-color=%23a98aff"
+  },
+  {
+    name: "Kaley Kallman",
+    context: "Producer · video testimonial",
+    note: "A public video testimonial shared through the Platinum Producers Club Testimonial.to wall.",
+    poster: "https://image.mux.com/qOx2q4YMwErEG35wyZUskQu5gwmUm00XJhhzcmFhCVLw/thumbnail.jpg?width=900",
+    player: "https://player.mux.com/qOx2q4YMwErEG35wyZUskQu5gwmUm00XJhhzcmFhCVLw?metadata-video-title=Kaley%20Kallman%20testimonial&accent-color=%23a98aff"
+  },
+  {
+    name: "Kim P.",
+    context: "Producer · video testimonial",
+    note: "In her written review, Kim described progressing from zero experience to four beats and a polished vocal song.",
+    poster: "https://image.mux.com/vUeCbadPJNCnVebnqP1NPOnG3h02rPiY02FFCWKKO1X8U/thumbnail.jpg?width=900",
+    player: "https://player.mux.com/vUeCbadPJNCnVebnqP1NPOnG3h02rPiY02FFCWKKO1X8U?metadata-video-title=Kim%20P%20testimonial&accent-color=%23a98aff"
+  }
+];
+
+const writtenTestimonials = [
+  {
+    name: "Ashtyn Keith",
+    quote: "His explanations are clear and concise, and he’s really good at giving you bite-sized steps based on your needs."
+  },
+  {
+    name: "Grace Leeswadtrakul",
+    quote: "His feedback is detailed, honest, and easy to apply. Because of his guidance, I’ve improved my workflow, grown my skills, and gained confidence in myself."
+  },
+  {
+    name: "Michell",
+    quote: "He’s really good at pinpointing focus areas of improvement. You can tell that he genuinely cares about helping his students make great music."
+  }
+];
+
+const fitPoints = [
+  "You are making music—or are genuinely ready to start making it consistently.",
+  "You want direct, detailed feedback and are willing to apply it.",
+  "You are tired of piecing together random advice without a clear priority.",
+  "You want to improve with the setup you already have instead of buying your way around the problem.",
+  "You care about finishing stronger music, not chasing an overnight shortcut."
 ];
 
 const faqs = [
   {
     question: "Do I need expensive gear or a professional studio?",
-    answer:
-      "No. The current PPC offer is explicitly built around improving skill and decision-making without requiring a fully equipped studio. You need a workable setup for making, listening to and exporting music—not a room full of new gear."
+    answer: "No. PPC’s current offer is built around improving skill and decision-making without requiring a fully equipped studio. You need a workable setup for making, listening to, and exporting music—not a room full of new gear."
   },
   {
-    question: "Is the mentorship only for complete beginners?",
-    answer:
-      "The existing application speaks to four stages: brand-new producers, producers with unfinished or unsatisfying tracks, producers trying to turn good work into a career, and working producers who want to move from good to great. The strategy call is the place to confirm fit."
+    question: "What experience level is the mentorship for?",
+    answer: "The current PPC application speaks to producers from complete beginners through working producers who want to move from good to great. The strategy call is where you and Terence can confirm whether your current level and goals are a fit."
   },
   {
     question: "What happens on the strategy call?",
-    answer:
-      "Calendly describes it as a real one-to-one call with Terence. It is a chance to discuss your current music, the progress you want, and whether the mentorship is the right next step. Scheduling, time zones, confirmations and reminders remain inside Calendly."
-  },
-  {
-    question: "Does mentorship guarantee placements, income or chart results?",
-    answer:
-      "No. Coaching can provide feedback, structure and perspective; it cannot guarantee a placement, a payment or a chart position. The client stories on this page describe those individuals’ experiences."
+    answer: "It is a real one-to-one call with Terence to discuss your music, what is currently holding you back, what you want to improve, and whether the mentorship is an appropriate next step. Booking a call does not guarantee acceptance."
   },
   {
     question: "What does the mentorship cost?",
-    answer:
-      "The current application says the mentorship may require a four-figure investment, but it does not publish a verified current price. If the fit is right, Terence can explain the current scope and investment on the strategy call."
+    answer: "The current public application says the mentorship may require a four-figure investment, but it does not publish a verified current price. If the fit is right, Terence can explain the current scope and investment on the call."
   },
   {
-    question: "Do I need to have attended music school?",
-    answer:
-      "No. PPC’s current positioning is an alternative to spending $25,000 or more on traditional production school. The focus is direct practice, feedback and a clearer process around your own music."
+    question: "Are placements, income, or chart results guaranteed?",
+    answer: "No. Mentorship can provide feedback, structure, and perspective; it cannot guarantee a placement, payment, or chart position. Student stories describe individual experiences and are not a promise of typical results."
   }
 ];
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Platinum Producers Club — Private Music Production Mentorship"
+  description="Direct music-production feedback and private mentorship with Terence Lam for producers ready to finish stronger, release-ready music."
+>
   <Header />
 
   <main id="main-content">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__media" aria-hidden="true">
-        <Picture
-          src={heroPoster}
-          formats={["avif", "webp"]}
-          widths={[640, 960, 1280]}
-          sizes="100vw"
-          alt=""
-          loading="eager"
-          fetchpriority="high"
-          quality={84}
-        />
-      </div>
-      <div class="hero__shade" aria-hidden="true"></div>
-      <div class="hero__grid" aria-hidden="true"></div>
-
-      <div class="hero__content page-shell">
-        <p class="eyebrow hero__eyebrow" data-reveal>Private production mentorship · Terence Lam</p>
-        <h1 id="hero-title" class="hero__title" data-reveal>
-          <span>Finish music</span>
-          <span>that feels</span>
-          <em>release-ready.</em>
-        </h1>
-        <div class="hero__support" data-reveal>
-          <p>
-            Replace scattered tutorials and trial-and-error with focused feedback, a clearer production process, and mentorship built around the music you are making now.
+    <section class="sales-hero" aria-labelledby="hero-title">
+      <div class="page-shell sales-hero__inner">
+        <div class="sales-hero__copy">
+          <p class="kicker" data-reveal>Private music production mentorship with Terence Lam</p>
+          <h1 id="hero-title" data-reveal>Finish music you’re proud to release.</h1>
+          <p class="sales-hero__lead" data-reveal>
+            Replace scattered tutorials and trial-and-error with direct feedback, individual direction, and a clearer path from unfinished session to stronger record.
           </p>
-          <div class="hero__actions">
-            <StrategyLink context="hero" />
-            <a
-              class="button button--video"
-              href="https://vimeo.com/1047620937/1990c988b1"
-              data-video-open
-            >
-              <span class="play-mark" aria-hidden="true">▶</span>
-              <span>Watch the 4-minute overview</span>
-            </a>
-          </div>
         </div>
 
-        <div class="hero__foot" data-reveal>
-          <p>Producer · Coach · Ableton Certified Trainer</p>
-          <a href="#diagnosis" aria-label="Scroll to understand the mentorship">
-            <span>Scroll</span>
-            <ArrowIcon direction="down" />
-          </a>
+        <div class="hero-offer" data-reveal>
+          <div class="provider-video provider-video--hero" data-provider-video>
+            <button
+              class="provider-video__poster"
+              type="button"
+              aria-label="Play the Platinum Producers Club program overview, 6 minutes 48 seconds"
+              data-player-open
+              data-player-title="Platinum Producers Club program overview"
+              data-player-src="https://player.vimeo.com/video/1050034975?h=9fe7bb5ddc&dnt=1&title=0&byline=0&portrait=0&autoplay=1"
+            >
+              <Picture
+                src={heroPoster}
+                formats={["avif", "webp"]}
+                widths={[640, 960, 1280]}
+                sizes="(min-width: 1200px) 1120px, calc(100vw - 2rem)"
+                alt="Terence Lam speaking from his music studio"
+                loading="eager"
+                fetchpriority="high"
+                quality={86}
+              />
+              <span class="provider-video__shade" aria-hidden="true"></span>
+              <span class="provider-video__play" aria-hidden="true"><i></i></span>
+              <span class="provider-video__label"><strong>Watch the program overview</strong><small>6:48 · Sound off until you press play</small></span>
+            </button>
+            <noscript><p><a href="https://vimeo.com/1050034975/9fe7bb5ddc">Watch the program overview on Vimeo</a></p></noscript>
+          </div>
+
+          <div class="hero-offer__action">
+            <div>
+              <strong>See if mentorship fits your music.</strong>
+              <p>Book a real one-to-one Release Ready Strategy Call with Terence.</p>
+            </div>
+            <StrategyLink label="Book your strategy session" context="hero" />
+          </div>
+          <p class="hero-offer__qualifier">A conversation about fit—not a guarantee of acceptance or results.</p>
         </div>
       </div>
     </section>
 
-    <VideoDialog />
-
-    <section class="diagnosis section section--paper" id="diagnosis" aria-labelledby="diagnosis-title">
+    <section class="problem-section section" aria-labelledby="problem-title">
       <div class="page-shell">
-        <header class="section-heading section-heading--wide" data-reveal>
-          <p class="section-index"><span>01</span> The gap</p>
-          <h2 id="diagnosis-title">The problem isn’t more information. It’s knowing what to change next.</h2>
-          <p class="section-intro">
-            A thousand saved tutorials can still leave one unfinished session blinking back at you. Direction turns information into progress.
+        <header class="section-heading section-heading--center" data-reveal>
+          <p class="kicker">If this sounds familiar</p>
+          <h2 id="problem-title">You don’t need more information. You need to know what your music needs next.</h2>
+        </header>
+
+        <div class="problem-list">
+          {problems.map((problem) => (
+            <article data-reveal>
+              <h3>{problem.title}</h3>
+              <p>{problem.copy}</p>
+            </article>
+          ))}
+        </div>
+
+        <p class="problem-section__close" data-reveal>
+          You do not need a $25,000 music school or a studio full of equipment to get unstuck. You need useful feedback on the work in front of you.
+        </p>
+      </div>
+    </section>
+
+    <section class="mentorship-section section" id="mentorship" aria-labelledby="mentorship-title">
+      <div class="page-shell split-section">
+        <header class="section-heading" data-reveal>
+          <p class="kicker">What changes with mentorship</p>
+          <h2 id="mentorship-title">Stop guessing. Start making the next decision with purpose.</h2>
+          <p>
+            Platinum Producers Club is direct production mentorship built around your music—not another pile of content to work through alone.
           </p>
         </header>
 
-        <ol class="diagnosis-list">
-          <li data-reveal>
-            <span class="diagnosis-list__number">01</span>
-            <div>
-              <h3>The tutorial loop</h3>
-              <p>You learn another technique, open the project, and still cannot tell which decision will make the track stronger.</p>
-            </div>
-            <span class="diagnosis-list__tag">Input ≠ direction</span>
-          </li>
-          <li data-reveal>
-            <span class="diagnosis-list__number">02</span>
-            <div>
-              <h3>The unfinished loop</h3>
-              <p>Ideas arrive. Finishing remains inconsistent. Without an outside ear, the same doubts return at the same point.</p>
-            </div>
-            <span class="diagnosis-list__tag">Ideas ≠ records</span>
-          </li>
-          <li data-reveal>
-            <span class="diagnosis-list__number">03</span>
-            <div>
-              <h3>The gear loop</h3>
-              <p>Another plugin or monitor will not replace arrangement judgement, trained listening or a repeatable workflow.</p>
-            </div>
-            <span class="diagnosis-list__tag">Tools ≠ taste</span>
-          </li>
+        <ul class="benefit-list" data-reveal>
+          {mentorshipBenefits.map((benefit) => <li><span aria-hidden="true">✓</span>{benefit}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="coach-section section" id="terence" aria-labelledby="coach-title">
+      <div class="page-shell coach-section__grid">
+        <figure class="coach-portrait" data-reveal>
+          <Picture
+            src={terencePortrait}
+            formats={["avif", "webp"]}
+            widths={[320, 500]}
+            sizes="(min-width: 900px) 430px, calc(100vw - 2rem)"
+            alt="Terence Lam producing music at a studio keyboard"
+            loading="lazy"
+            quality={88}
+          />
+        </figure>
+
+        <div class="coach-section__copy" data-reveal>
+          <p class="kicker">Why Terence</p>
+          <h2 id="coach-title">A producer’s ear. A coach’s clarity. Focused on your music.</h2>
+          <p class="coach-section__lead">
+            Terence “polun” Lam is a producer, coach, and Ableton Certified Trainer who turns what he hears into practical next steps you can use in the session.
+          </p>
+
+          <dl class="credential-list">
+            <div><dt>15 years</dt><dd>of real-world experience stated in PPC’s current public materials</dd></div>
+            <div><dt>Major-artist work</dt><dd>current PPC materials cite songs involving Drake, Alessia Cara, and Meghan Trainor</dd></div>
+          </dl>
+
+          <Image
+            class="ableton-mark"
+            src={abletonCredential}
+            alt="Ableton Certified Trainer"
+            width={490}
+            quality={92}
+            loading="lazy"
+          />
+          <p class="claim-note">Existing public PPC claims and credential; owner confirmation remains required before production migration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section section" id="process" aria-labelledby="process-title">
+      <div class="page-shell">
+        <header class="section-heading section-heading--center" data-reveal>
+          <p class="kicker">How it works</p>
+          <h2 id="process-title">Four simple steps. Your music stays at the centre.</h2>
+        </header>
+
+        <ol class="process-list">
+          {methodSteps.map((step, index) => (
+            <li data-reveal>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div><h3>{step.title}</h3><p>{step.copy}</p></div>
+            </li>
+          ))}
         </ol>
       </div>
     </section>
 
-    <section class="credibility section section--ink" aria-labelledby="credibility-title">
+    <section class="results-section section" id="results" aria-labelledby="results-title">
       <div class="page-shell">
-        <header class="credibility__intro" data-reveal>
-          <p class="section-index"><span>02</span> Perspective</p>
-          <h2 id="credibility-title">Learn from someone who has spent years making the decisions.</h2>
-          <p>
-            Terence brings a working producer’s ear to the coaching room—then turns what he hears into practical next steps.
-          </p>
+        <header class="section-heading section-heading--center" data-reveal>
+          <p class="kicker">Student results</p>
+          <h2 id="results-title">Real producers. Real progress.</h2>
+          <p>Hear directly from producers who chose to work with Terence.</p>
         </header>
 
-        <dl class="credit-ledger" data-reveal>
-          <div>
-            <dt><strong>15</strong> years</dt>
-            <dd>of real-world experience, as stated by the current program.</dd>
-          </div>
-          <div>
-            <dt>Drake · Alessia Cara · Meghan Trainor</dt>
-            <dd>Songs with the artists named in PPC’s current public credit claim.</dd>
-          </div>
-          <div class="credit-ledger__credential">
-            <dt>
-              <Image
-                src={abletonCredential}
-                alt="Ableton Certified Trainer"
-                width={490}
-                quality={92}
-                loading="lazy"
-              />
-            </dt>
-            <dd>A technical foundation paired with individual feedback.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="method section section--ink" id="method" aria-labelledby="method-title">
-      <div class="page-shell">
-        <header class="section-heading method__heading" data-reveal>
-          <p class="section-index"><span>03</span> The method</p>
-          <h2 id="method-title">A better production loop.</h2>
-          <p class="section-intro">Less random motion. More deliberate listening, action and completion.</p>
-        </header>
-
-        <div class="arrangement">
-          <aside class="arrangement__rail" aria-label="Mentorship sequence">
-            <p>The arrangement</p>
-            <ol>
-              {methodSteps.map((step, index) => (
-                <li class:list={[{ "is-active": index === 0 }]} data-method-indicator={step.number}>
-                  <span>{step.number}</span>{step.label}
-                </li>
-              ))}
-            </ol>
-            <span class="arrangement__time">00:00 → finished</span>
-          </aside>
-
-          <div class="arrangement__steps">
-            {methodSteps.map((step) => (
-              <article class="method-step" data-method-step={step.number} data-reveal>
-                <div class="method-step__meta">
-                  <span>{step.number}</span>
-                  <span>{step.label}</span>
-                </div>
-                <h3>{step.title}</h3>
-                <p>{step.copy}</p>
-                <div class={`track-visual track-visual--${step.number}`} aria-hidden="true">
-                  <span></span><span></span><span></span><span></span><span></span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="proof section section--paper" id="results" aria-labelledby="results-title" data-testimonials>
-      <div class="page-shell">
-        <header class="section-heading proof__heading" data-reveal>
-          <p class="section-index"><span>04</span> In their words</p>
-          <h2 id="results-title">The value shows up in the work—and in the way producers think about it.</h2>
-        </header>
-
-        <div class="proof__stage" aria-live="polite" data-reveal>
-          {testimonials.map((testimonial, index) => (
-            <figure data-testimonial hidden={index !== 0} aria-hidden={index !== 0 ? "true" : "false"}>
-              <blockquote>
-                <span aria-hidden="true">“</span>{testimonial.quote}<span aria-hidden="true">”</span>
-              </blockquote>
+        <div class="video-proof-grid">
+          {videoTestimonials.map((testimonial) => (
+            <figure class="video-proof" data-reveal>
+              <div class="provider-video" data-provider-video>
+                <button
+                  class="provider-video__poster"
+                  type="button"
+                  aria-label={`Play ${testimonial.name}'s video testimonial`}
+                  data-player-open
+                  data-player-title={`${testimonial.name} video testimonial`}
+                  data-player-src={testimonial.player}
+                >
+                  <img
+                    src={testimonial.poster}
+                    alt={`${testimonial.name} video testimonial poster`}
+                    width="900"
+                    height="506"
+                    loading="lazy"
+                    decoding="async"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  />
+                  <span class="provider-video__shade" aria-hidden="true"></span>
+                  <span class="provider-video__play provider-video__play--small" aria-hidden="true"><i></i></span>
+                </button>
+                <noscript><p><a href={testimonial.player}>Watch {testimonial.name}'s video testimonial</a></p></noscript>
+              </div>
               <figcaption>
                 <strong>{testimonial.name}</strong>
-                <span>{testimonial.headline}</span>
-                <time>{testimonial.date}</time>
+                <span>{testimonial.context}</span>
+                <p>{testimonial.note}</p>
               </figcaption>
             </figure>
           ))}
         </div>
 
-        <div class="proof__controls" data-reveal>
-          <span data-testimonial-count>01 / {String(testimonials.length).padStart(2, "0")}</span>
-          <div>
-            <button type="button" aria-label="Previous testimonial" data-testimonial-prev><ArrowIcon direction="left" /></button>
-            <button type="button" aria-label="Next testimonial" data-testimonial-next><ArrowIcon /></button>
-          </div>
+        <div class="written-proof" role="group" aria-label="Written student testimonials">
+          {writtenTestimonials.map((testimonial) => (
+            <figure data-reveal>
+              <blockquote>“{testimonial.quote}”</blockquote>
+              <figcaption>{testimonial.name}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <p class="results-disclaimer">Testimonials describe individual experiences. Results vary and are not guaranteed.</p>
+
+        <div class="section-conversion" data-reveal>
+          <div><strong>Want focused direction on your music?</strong><p>Start with a one-to-one fit call.</p></div>
+          <StrategyLink label="Book your strategy session" context="results" />
         </div>
       </div>
     </section>
 
-    <section class="fit section section--ink" aria-labelledby="fit-title">
-      <div class="page-shell">
-        <header class="section-heading fit__heading" data-reveal>
-          <p class="section-index"><span>05</span> Fit matters</p>
-          <h2 id="fit-title">This is active mentorship, not another tab to leave open.</h2>
+    <section class="fit-section section" aria-labelledby="fit-title">
+      <div class="page-shell split-section">
+        <header class="section-heading" data-reveal>
+          <p class="kicker">Who this is for</p>
+          <h2 id="fit-title">For producers ready to make music—and use the feedback.</h2>
+          <p>
+            This is active mentorship. It works best when you are willing to share the work, hear an honest perspective, and put the next step into practice.
+          </p>
+          <p class="fit-section__note">Probably not for you if you want a guaranteed placement, income result, or one-plugin shortcut.</p>
         </header>
 
-        <div class="fit-grid">
-          <div data-reveal>
-            <p class="fit-grid__label"><span>✓</span> A strong fit if</p>
-            <ul>
-              <li>You are making—or genuinely ready to make—music consistently.</li>
-              <li>You want detailed feedback and are willing to apply it.</li>
-              <li>You are tired of guessing what to learn next.</li>
-              <li>You want to improve with the setup you already have.</li>
-              <li>You are ready for direct, honest perspective on the work.</li>
-            </ul>
-          </div>
-          <div data-reveal>
-            <p class="fit-grid__label"><span>×</span> Not the right fit if</p>
-            <ul>
-              <li>You are looking for guaranteed placements, earnings or chart results.</li>
-              <li>You want a passive library without making and sharing music.</li>
-              <li>You expect one plugin, preset or shortcut to replace practice.</li>
-              <li>You are not ready to invest time, attention and effort.</li>
-              <li>You do not want anyone to challenge your current decisions.</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="fit-list" data-reveal>
+          {fitPoints.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
+        </ul>
+      </div>
+    </section>
 
-        <div class="fit__action" data-reveal>
-          <p>Unsure where you sit?</p>
-          <StrategyLink className="text-cta" label="Talk it through with Terence" context="fit" />
+    <section class="next-step-section section" aria-labelledby="next-step-title">
+      <div class="page-shell">
+        <header class="section-heading section-heading--center" data-reveal>
+          <p class="kicker">What happens next</p>
+          <h2 id="next-step-title">The next step is a conversation—not a commitment.</h2>
+        </header>
+
+        <ol class="next-step-list">
+          <li data-reveal><span>1</span><div><strong>Choose a time.</strong><p>Calendly shows Terence’s current availability in your time zone.</p></div></li>
+          <li data-reveal><span>2</span><div><strong>Talk directly with Terence.</strong><p>Discuss your music, goals, current bottleneck, and the support you are looking for.</p></div></li>
+          <li data-reveal><span>3</span><div><strong>Decide if it fits.</strong><p>You will determine together whether the mentorship is an appropriate next step.</p></div></li>
+        </ol>
+
+        <div class="next-step-section__action" data-reveal>
+          <StrategyLink label="See available times" context="next-steps" />
+          <p>Booking does not guarantee acceptance into the mentorship.</p>
         </div>
       </div>
     </section>
 
-    <section class="coach section section--paper" id="terence" aria-labelledby="coach-title">
-      <div class="page-shell coach__grid">
-        <figure class="coach__portrait" data-reveal>
-          <Picture
-            src={terencePortrait}
-            formats={["avif", "webp"]}
-            widths={[320, 500]}
-            sizes="(min-width: 900px) 44vw, 100vw"
-            alt="Terence Lam producing music at a studio keyboard"
-            loading="lazy"
-            quality={88}
-          />
-          <figcaption>
-            <span>Terence “polun” Lam</span>
-            <span>Producer / coach</span>
-          </figcaption>
-        </figure>
-
-        <div class="coach__copy" data-reveal>
-          <p class="section-index"><span>06</span> Your coach</p>
-          <h2 id="coach-title">Fifteen years in the room. One set of ears on your music.</h2>
-          <p class="coach__lead">
-            Terence Lam is a producer, coach and Ableton Certified Trainer. PPC’s current public materials credit him with songs involving Drake, Alessia Cara and Meghan Trainor.
-          </p>
-          <p>
-            His clients return to the same qualities: close listening, precise feedback, patience, and a plan shaped around the producer in front of him. The goal is not to make you sound like Terence. It is to help you hear your own work more clearly—and act on what you hear.
-          </p>
-          <div class="coach__signature">
-            <span>TERENCE / POLUN</span>
-            <small>PROMU Music Group Ltd.</small>
-          </div>
-          <StrategyLink context="coach" />
-        </div>
-      </div>
-    </section>
-
-    <section class="faq section section--ink" id="faq" aria-labelledby="faq-title">
-      <div class="page-shell faq__grid">
-        <header class="section-heading faq__heading" data-reveal>
-          <p class="section-index"><span>07</span> Questions</p>
-          <h2 id="faq-title">Before you book.</h2>
-          <p class="section-intro">The straight answers—without rebuilding what Calendly already does well.</p>
+    <section class="faq-section section" id="faq" aria-labelledby="faq-title">
+      <div class="page-shell faq-section__grid">
+        <header class="section-heading" data-reveal>
+          <p class="kicker">Frequently asked</p>
+          <h2 id="faq-title">Questions before you book.</h2>
         </header>
 
         <div class="faq-list" data-reveal>
-          {faqs.map((faq, index) => (
-            <details class="faq-item" open={index === 0}>
-              <summary>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{faq.question}</strong>
-                <i aria-hidden="true"></i>
-              </summary>
+          {faqs.map((faq) => (
+            <details class="faq-item">
+              <summary><strong>{faq.question}</strong><span aria-hidden="true"></span></summary>
               <div><p>{faq.answer}</p></div>
             </details>
           ))}
@@ -403,16 +387,12 @@ const faqs = [
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="final-cta-title">
+    <section class="final-cta" aria-labelledby="final-title">
       <div class="page-shell" data-reveal>
-        <p class="section-index"><span>08</span> Your next session</p>
-        <h2 id="final-cta-title">Make the next decision count.</h2>
-        <div class="final-cta__row">
-          <p>
-            Book a real one-to-one Release Ready Strategy Call with Terence. Calendly handles the time zone, available times and confirmation.
-          </p>
-          <StrategyLink className="button button--ink" label="See available times" context="final" />
-        </div>
+        <p class="kicker">Ready for a clearer next move?</p>
+        <h2 id="final-title">Bring your music. Let’s talk about what it needs next.</h2>
+        <StrategyLink label="Book your strategy session" context="final" />
+        <p>A real one-to-one Release Ready Strategy Call with Terence Lam.</p>
       </div>
     </section>
   </main>

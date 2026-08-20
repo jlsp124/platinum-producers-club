@@ -1,173 +1,119 @@
 # Design system
 
-## Frontend design thesis
+## Direction after owner review
+
+Platinum Producers Club is a single-purpose mentorship sales page. The earlier Steven Bartlett/personal-brand direction is deferred to a possible future Terence Lam personal website.
 
 ### Visual thesis
 
-A monochrome studio editorial with warm signal-orange accents—an album campaign measured on a precise production timeline, led by real human photography rather than course-funnel decoration.
+A calm, warm-white studio sales page with near-black typography, one deep-violet action color, real video, and enough restraint that the offer—not the interface—feels premium.
 
 ### Content plan
 
-1. Hero: PPC brand, release-ready mentorship promise, Terence, direct Calendly CTA, and the short owner VSL.
-2. Support: the tutorial/gear/trial-and-error problem and Terence’s relevant credibility.
-3. Detail: the feedback-to-finished-work mentorship arrangement, proof, fit, coach profile, and FAQ.
-4. Final CTA: a focused strategy-call invitation and preserved legal footer.
+1. Outcome, visible VSL, and Calendly action.
+2. Problem recognition and concrete mentorship value.
+3. Terence credibility and a four-step process.
+4. Real student video/text proof and qualification.
+5. Call mechanics, FAQ, and final CTA.
 
 ### Interaction thesis
 
-1. A restrained hero entrance reveals the wordmark, headline, copy, and actions in a deliberate recording-count-in sequence while the media plane settles subtly into place.
-2. A top playback line and sticky “arrangement” chapter translate scroll progress into a useful sense of where the visitor is in the story.
-3. Manual testimonial changes, image zooms, underline motion, and CTA arrow travel reinforce affordance without autoplay or scroll hijacking.
+1. A short hero/section reveal establishes hierarchy without delaying the message.
+2. Video posters have one obvious play action and create provider players only after click.
+3. Button and FAQ feedback is fast and functional; reduced motion receives the same content immediately.
 
 ## Principles
 
-- Brand first, promise second, CTA third.
-- One dominant idea per section.
-- Real Terence imagery does narrative work.
-- Type scale, crop, rhythm, and contrast create hierarchy before decoration.
-- Cards are used only where the content changes interactively; most structure is created with rules and columns.
-- The visual language remains usable if every animation is removed.
+- One offer, one audience, one primary action.
+- The VSL is the first dominant visual.
+- Every section explains, proves, qualifies, or converts.
+- One cohesive environment; no chapter-by-chapter art-direction changes.
+- Real people and media carry trust.
+- Rules, alignment, type, and spacing create structure before cards or effects.
+- Important proof is visible without carousel controls.
+- The page remains complete if JavaScript or animation is unavailable.
 
 ## Color
 
 | Token | Value | Use |
 | --- | --- | --- |
-| Ink | `#090A0B` | Primary background and text on the accent |
-| Ink raised | `#151719` | Media overlays and subtle depth |
-| Paper | `#F2EFE7` | Primary light surface and text on ink |
-| Paper muted | `#C9C5BB` | Secondary copy on dark surfaces |
-| Signal | `#FF5A3D` | Primary actions, progress, focus accents, and selected state |
-| Rule dark | `rgba(242,239,231,.22)` | Dark-surface dividers |
-| Rule light | `rgba(9,10,11,.22)` | Light-surface dividers |
+| Background | `#F8F6F1` | Main canvas and translucent header |
+| Surface | `#F0EDE6` | Subtle section separation |
+| Raised surface | `#FFFDF9` | Media fallback and restrained depth |
+| Text | `#18171D` | Primary copy and black logo treatment |
+| Muted | `#59565D` | Supporting copy |
+| Quiet | `#625E66` | Disclaimers and verification notes; AA-safe on both light surfaces |
+| Accent | `#6841CC` | Primary CTAs, focus, play, and labels |
+| Rule | `rgba(24,23,29,.12)` | Dividers |
 
-Signal orange is the only dominant brand accent. It is not used as body text on paper. Primary buttons use ink text on signal; focus rings use paper plus signal for visible separation.
+The Ableton badge retains its authentic gold artwork; it is evidence, not a second interface accent.
 
 ## Typography
 
-- Family: Archivo Variable, locally served under the SIL Open Font License.
-- Display: condensed width, 650–800 weight, tight leading, uppercase only when the phrase is short.
-- Body: normal width, 400–520 weight, relaxed leading.
-- Metadata: normal/condensed width, 500–650 weight, uppercase with deliberate tracking.
+- Family: Archivo Variable, self-hosted under the SIL Open Font License.
+- Hero: `clamp(3rem, 6vw, 5.25rem)` on larger layouts and a separately tested phone scale.
+- Section headings: approximately 36–76px through `clamp()`.
+- Body: 16–18px with 1.5–1.6 line height.
+- Labels: 11–12px uppercase with tracking.
+- Body measures stay near 43rem; the main sales canvas is capped at 76rem.
 
-Fluid sizes use `clamp()` rather than breakpoint jumps:
+Headings use tight spacing and balanced wrapping. Copy remains sentence case except for short labels and CTA text.
 
-- Hero display: approximately 55px at 320px to 172px on large desktops.
-- Section display: approximately 38px to 92px.
-- Quote: approximately 30px to 64px.
-- Body large: approximately 18px to 24px.
-- Body: 16px to 19px.
-- Metadata: 11px to 13px.
+## Composition and spacing
 
-Line lengths are capped near 55–68 characters for body copy. Display copy is manually balanced with narrow text measures rather than forced `<br>` tags where possible.
+- Header: logo plus one strategy-call CTA; no chapter navigation or mobile menu.
+- Hero copy: centred on larger screens, left aligned on phones.
+- Hero offer/VSL measure: maximum 55rem so the VSL and CTA read as one unit.
+- Main sales canvas: maximum 76rem with `clamp(16px, 4vw, 48px)` gutters.
+- Major sections: `clamp(76px, 8vw, 128px)` vertical spacing.
+- Sections use plain columns, lists, and 1px rules; card containers are reserved for video players and the small CTA callout.
+- Radius is capped around 12px and does not become a visual motif.
 
-## Grid
+## Video
 
-- Full-bleed hero/media planes remain edge-to-edge.
-- Editorial content uses a 12-column grid above 1024px.
-- Main canvas max width: 1600px.
-- Reading measures use 5–7 columns.
-- Side gutter: `clamp(16px, 3.4vw, 64px)`.
-- Major section padding: `clamp(88px, 12vw, 192px)`.
-- Rules align across sections to make the long page feel like one system.
-
-## Spacing
-
-The scale is based on 4px and composed primarily from 8, 12, 16, 24, 32, 48, 64, 96, 128, and 192px. Repeated small equal gaps are avoided; close elements are grouped and groups receive larger separation.
-
-## Image treatment
-
-- Hero: full-bleed owner video poster with a dark tonal overlay and responsive crop centered on Terence.
-- Coach portrait: black-and-white existing image, hard crop, no rounded container, subtle signal wash on interaction.
-- Decorative treatment: grain-like CSS texture at very low opacity; no downloaded texture and no animated noise.
-- Images receive explicit dimensions/aspect ratios to prevent CLS.
-- Below-fold imagery is lazy-loaded; the hero derivative is preloaded.
-- Alt text describes meaningful subject/context; purely decorative crops use empty alt text.
-
-## Borders and surfaces
-
-- Rules are predominantly 1px.
-- Corners are square or minimally softened (0–2px).
-- No glassmorphism.
-- No generic feature-card mosaic.
-- Shadows are reserved for the video dialog and focus separation, never for routine sections.
+- Primary VSL: local optimized 16:9 poster, clear play control, supported Vimeo iframe created on click, no audio autoplay on load.
+- Student proof: three public provider-hosted Mux posters and supported Mux iframe players created on click.
+- Provider iframes replace the poster in place and preserve the 16:9 footprint.
+- Remote video files are not downloaded or rehosted.
+- Poster alt text, button labels, iframe titles, focus treatment, and no-JavaScript links preserve access.
 
 ## CTA hierarchy
 
-### Primary
+Primary CTA:
 
-- Solid signal background, ink text, 52–60px minimum height, arrow motion on hover/focus.
-- Wording: “Book a strategy call.”
-- Direct semantic `<a>` to the clean Calendly event.
+- solid violet, white text, minimum 44px tap height;
+- wording is “Book your strategy session,” “Book a call,” or “See available times” according to context;
+- every instance is a semantic same-tab anchor to the clean Calendly event.
 
-### Secondary
+The header, hero, proof, next-step, and final-close CTAs use the same visual/action language. There is no competing secondary offer.
 
-- Paper/ink text link with an underline or 1px border.
-- Wording: “Watch the 4-minute overview” or context-specific anchor navigation.
+## Motion
 
-All tap targets are at least 44×44px and remain understandable without hover.
+- Hero entrance: opacity plus a short vertical move, 600ms maximum.
+- Section reveal: one transition per semantic group.
+- Media hover: maximum 1.018 scale.
+- CTA hover: 2px lift and 3px arrow travel.
+- FAQ plus/minus: 180ms rotation.
 
-## Motion language
+Removed: scroll progress, sticky DAW sequence, carousel transitions, modal VSL, chapter animation, and continuous decorative motion.
 
-- Hero entrance: 500–850ms staggered transform/opacity with a short easing curve.
-- Section reveal: 450–700ms, small distance, one reveal per semantic group.
-- Scroll progress: transform-only scale on a fixed 2px line.
-- Sticky method: content cross-emphasis only; no scroll lock or hijacking.
-- Media hover: maximum 1.025 scale.
-- CTA arrow: maximum 6px travel.
-- Testimonial change: opacity/translate transition under 350ms.
-
-No effect continuously chases the cursor. No text is animated while the user is trying to read it.
-
-## Reduced motion
-
-Under `prefers-reduced-motion: reduce`:
-
-- reveal elements render immediately;
-- smooth scrolling is disabled;
-- parallax/scroll transforms stop;
-- testimonial transitions become instant;
-- the video never autoplays;
-- CTA and image transforms are removed;
-- the page remains visually complete.
+Under `prefers-reduced-motion: reduce`, reveals render immediately, scrolling is not smoothed, autoplay is disabled, and transitions collapse to an effectively instant duration.
 
 ## Responsive behavior
 
-### 320–479px
+- 320–430px: compact header, left-aligned hero, full-width 16:9 VSL, full-width conversion buttons, vertical problem/process/proof lists, no horizontal controls.
+- 768px: one-column explanatory sections where reading order matters; process and video proof can use two columns without compression.
+- 1024px: full three-video proof row and compact two-column sales sections.
+- 1440–1728px: content remains capped; whitespace grows without stretching copy or media.
 
-- 16px side gutters.
-- Compact logo and native disclosure-style menu.
-- Hero uses a tall crop and fits its brand, promise, CTA, and video action inside the initial viewport where device height allows.
-- Display words do not exceed the viewport; `overflow-wrap` and tested line balance are mandatory.
-- Sticky method becomes a normal vertical sequence.
-- Testimonial controls remain visible and do not rely on horizontal drag.
-
-### 480–767px
-
-- Slightly wider measures and two-up metadata where useful.
-- CTA can become auto-width but never full-screen tall.
-
-### 768–1023px
-
-- Purpose-built two-column compositions.
-- The old three-column squeeze is not repeated.
-- Navigation remains compact until the full desktop layout has adequate space.
-
-### 1024–1439px
-
-- Full navigation, 12-column grid, sticky arrangement sequence, and offset media.
-
-### 1440px+
-
-- Scale and whitespace increase; line lengths and image crops remain constrained.
-- Content does not simply stretch.
+The automated matrix covers 320, 375, 390, 430, 768, 1024, 1440, and 1728px.
 
 ## Accessibility
 
-- One `h1`, logical `h2`/`h3` sequence, landmarks, and skip link.
-- Visible `:focus-visible` treatment on every control.
-- Dialog focus trap, Escape close, labelled close button, and focus return.
-- Mobile menu exposes expanded state and closes on Escape/link selection.
-- Testimonial controls have names and status announcement.
-- No color-only meaning.
-- Minimum AA contrast targets.
-- No hover-only information.
+- One `h1`, logical heading sequence, landmarks, and skip link.
+- Visible `:focus-visible` treatment for every control.
+- Minimum 44px interactive targets.
+- Native `<details>` FAQs and real links.
+- Play buttons have explicit accessible names; created iframes have titles.
+- No color-only meaning, hover-only content, scroll locking, or autoplay audio.
+- No content is hidden behind an interaction except media playback itself.

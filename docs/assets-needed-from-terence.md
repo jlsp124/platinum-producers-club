@@ -1,60 +1,61 @@
-# Assets needed from Terence
+# Assets and approvals needed from Terence
 
-The preview can be complete with the recovered owner assets. The following replacements would materially raise production quality and reduce reliance on low-resolution/cropped imagery.
+The focused preview is visually complete with recovered public PPC assets. These items are needed to move from preview confidence to production confidence.
 
 ## Highest priority
 
-1. Hero studio portrait or motion clip
-   - Horizontal still: at least 2400×1600, with clean negative space on one side.
-   - Vertical still: at least 1600×2400 for phone art direction.
-   - Optional motion: 8–15 seconds, 4K or high-bitrate 1080p, horizontal and vertical, no embedded text/music required.
-   - Terence working naturally at the desk/keyboard, not a posed “online course” image.
+1. Confirm the primary VSL
+   - The preview uses Vimeo `1050034975` / `9fe7bb5ddc` (“VSL new3-FINAL,” approximately 6:48).
+   - Confirm whether it should remain primary or whether Vimeo `1047620937` / `1990c988b1` (approximately 4:14) should replace it.
+   - Provide a clean caption file (`.vtt`) and transcript for the selected video.
+   - Confirm permission to use the current poster and supported Vimeo embed on the production site.
 
-2. High-resolution coach portrait set
-   - One direct-to-camera editorial portrait.
-   - One wide studio/environment portrait.
-   - One detail/action image at the keyboard or workstation.
-   - Original files with usage permission/photographer credit requirements.
+2. Approve the testimonial set and supported embed codes
+   - Confirm Cedrick, Kaley Kallman, and Kim P. as the three featured videos.
+   - Export the official single-testimonial embed snippets from the Testimonial.to dashboard if they differ from the public Mux playback IDs used in preview.
+   - Confirm permission for names, posters, video playback, written context, and excerpts outside the full wall.
+   - Provide corrected spelling/styling and preferred order.
 
-3. Vector PPC logo package
+3. Verify credibility claims
+   - Exact current “15 years” wording and supporting start date.
+   - Exact role, track names, and public-credit wording for Drake, Alessia Cara, and Meghan Trainor.
+   - Current Ableton Certified Trainer status and badge usage rules.
+
+4. Provide the official PPC logo package
    - SVG/EPS/PDF wordmark and mark.
-   - Light/dark variants.
-   - Clearspace and minimum-size guidance if available.
-   - The currently recovered large transparent PNG is usable but not ideal.
+   - Light/dark variants, clearspace, and minimum-size guidance.
+   - The recovered transparent PNG works, but CSS must force it to a single white treatment.
 
-## Coaching evidence
+## Offer detail
 
-- Candid images of a real feedback/coaching session, with student permission.
-- Cropped/anonymized screenshots of production feedback, project notes, or before/after arrangement decisions.
-- Ableton teaching images that do not expose private client files.
-- A short screen recording showing how Terence diagnoses a production issue.
-- Confirmation of what may be shown publicly and any required redactions.
+Confirm the facts the preview currently avoids guessing:
 
-## Social proof
+- official offer spelling and naming;
+- delivery format, duration, call frequency, response times, and curriculum/library access;
+- community access and whether Theo remains part of delivery;
+- accepted experience levels, genres, and DAWs;
+- current investment range;
+- whether the Calendly event is an application call, fit call, or both;
+- whether any evidence-based availability/scarcity statement should appear.
 
-- Owner-approved final testimonial list and exact preferred excerpts.
-- Original testimonial headshots or stills with written usage permission.
-- Full-resolution student screenshots/results where relevant.
-- Verified credit/placement documentation that can be publicly displayed.
-- Optional audio A/B examples only where the producer/artist/rightsholder has granted web usage.
+## Optional quality upgrades
 
-## Credentials and brand proof
+- One higher-resolution horizontal studio/VSL poster without embedded third-party marks where possible.
+- One high-resolution direct-to-camera coach portrait and one studio-action portrait.
+- Candid coaching-session photos with student permission.
+- Redacted screenshots or a short recording of real feedback on a project.
+- Cleared before/after audio or arrangement examples where every rightsholder has approved web use.
+- Verified press, award, or credit materials that can be named precisely.
 
-- Current Ableton Certified Trainer badge directly from the approved asset kit plus usage rules.
-- Owner-approved production credit list with role, artist, track, and release link.
-- Any press, certification, or award assets that can be truthfully and legally displayed.
+## Legal and production approval
 
-## Video
-
-- Preferred final VSL and whether `/mentor1` (6:48) or `/mentor2` (4:14) should be primary.
-- Clean caption file (`.vtt`) and transcript.
-- Thumbnail without embedded third-party marks where possible.
-- Horizontal and vertical social cutdowns if the hero later uses motion.
+- Review and approve the recovered local Privacy Policy and Terms of Service.
+- Confirm public contact addresses, company/jurisdiction details, platform disclaimer, and tracking/consent requirements.
+- Approve the final social image, Vimeo/Mux/Testimonial.to third-party requests, and the GitHub Pages preview before any production migration.
 
 ## Delivery notes
 
-- Provide original files, not screenshots downloaded from Instagram.
-- Include the photographer/creator and usage permission for every asset.
-- Do not send private student data unless it is already cleared and appropriately redacted.
-- Dropbox/Drive/WeTransfer or a structured local asset folder is preferable to compressed chat images.
-
+- Provide original files, not social-media screenshots.
+- Include creator/photographer and usage permission for each asset.
+- Do not send private student data unless it is cleared and appropriately redacted.
+- A structured Drive/Dropbox/WeTransfer folder or local asset directory is preferred.

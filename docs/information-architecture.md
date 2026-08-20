@@ -1,60 +1,81 @@
 # Information architecture
 
-## Conversion goal
+## Product rule
 
-Move a serious music producer from recognition (“I am stuck in a tutorial/trial-and-error loop”) to understanding (“the offer is individualized production mentorship”) to trust (“Terence has relevant production, teaching, and student evidence”) to one unambiguous action: booking the verified Release Ready Strategy Call in Calendly.
+PPC is one mentorship sales page. The broader personal-brand / Steven Bartlett direction is deferred to a possible future Terence Lam website.
 
-Every primary CTA uses the clean event URL:
+The homepage exists to move an appropriate producer from recognition (“I am stuck”) to understanding (“this is direct mentorship on my music”) to trust (“Terence and his students provide relevant evidence”) to one action: booking the verified Release Ready Strategy Call.
+
+Every primary CTA uses:
 
 `https://calendly.com/terence-p-lam/release-ready-strategy-call`
 
-The link opens in the same tab. This is the simplest reliable behavior, works without JavaScript, preserves the browser Back path, and avoids the performance/accessibility cost of an embedded scheduler. Supported incoming `utm_*` values are progressively appended when JavaScript is available.
+The link opens in the same tab, works without JavaScript, and preserves the Back path. JavaScript forwards only supported incoming `utm_*` values and emits a local, non-networked CTA-context event for a future approved analytics integration.
 
 ## Route map
 
-- `/` — focused Platinum Producers Club marketing and coaching funnel.
-- `/privacy/` — verbatim recovered owner Privacy Policy, marked for owner/legal verification before production.
-- `/terms/` — verbatim recovered owner Terms of Service, marked for owner/legal verification before production.
-- `/404.html` — static-host fallback that returns visitors to the homepage.
+- `/` — focused Platinum Producers Club mentorship sales page.
+- `/privacy/` — recovered owner Privacy Policy, marked for legal/owner review.
+- `/terms/` — recovered owner Terms of Service, marked for legal/owner review.
+- `/404.html` — static-host fallback with a direct homepage action.
 
-There is no client-side router and no custom backend.
+There is no client-side router, backend, custom application form, or embedded scheduler.
 
-## Homepage story
+## Homepage conversion story
 
 | Order | Section | One job | Primary takeaway/action |
 | ---: | --- | --- | --- |
-| 1 | Full-bleed hero | Position the offer | Private production mentorship to help serious producers finish stronger, release-ready music; book a strategy call or watch the 4:14 overview |
-| 2 | Recognition / “signal lost” | Name the real obstacle | More tutorials and gear do not create a clear next decision |
-| 3 | Terence credibility ledger | Establish relevant authority | 15 years of stated experience, existing artist/credit claim, and Ableton Certified Trainer credential |
-| 4 | Mentorship arrangement | Explain what changes | Listen closely, identify the highest-value move, apply direct feedback, and finish with intention |
-| 5 | Curated proof | Let clients answer objections | Detailed, individualized guidance can improve workflow, confidence, and completed work |
-| 6 | Fit / non-fit | Qualify without a coercive survey | For producers ready to make music and use feedback; not a promise of overnight results or passive consumption |
-| 7 | Coach profile | Make the offer human | Terence is the central coach, producer, and teacher—not an anonymous course brand |
-| 8 | FAQ | Resolve practical objections | Gear, experience, investment, call purpose, and outcome expectations |
-| 9 | Final CTA | Convert with clarity | Book the verified one-to-one Release Ready Strategy Call on Calendly |
-| 10 | Footer / legal | Preserve commercial/legal context | PROMU Music Group Ltd., current disclaimer, legal pages, preview status |
+| 1 | Hero + VSL | State the outcome and show the pitch | Private mentorship to help producers finish music they are proud to release; watch the 6:48 VSL and book a strategy session |
+| 2 | Core problem | Mirror the buyer’s frustration | Tutorials, unfinished sessions, and more gear do not identify the next decision |
+| 3 | Mentorship value | Explain the product | Direct feedback, individual direction, specific next steps, workflow guidance, and accountability |
+| 4 | Terence credibility | Answer “why this coach?” | Producer/coach, Ableton credential, and existing public experience/credit claims at their documented confidence level |
+| 5 | How it works | Remove process ambiguity | Bring music, identify the bottleneck, get focused direction, apply it, and finish stronger |
+| 6 | Student results | Provide human proof | Three visible video testimonials, three written excerpts, and a non-guarantee note |
+| 7 | Who it is for | Qualify positively | Producers ready to make music, hear direct feedback, and apply it |
+| 8 | What happens next | Make conversion safe and obvious | Choose a Calendly time, speak with Terence, decide whether the mentorship fits |
+| 9 | FAQ | Resolve practical objections | Gear, experience, call purpose, investment, and guarantees |
+| 10 | Final CTA | Close one argument | Book the same verified Calendly event |
+| 11 | Footer/legal | Preserve business context | PROMU Music Group Ltd., contact, local legal pages, disclaimer, preview status |
 
-## Navigation
+## Navigation and CTA frequency
 
-Desktop navigation is intentionally small: Method, Results, About Terence, FAQ, and a strategy-call CTA. Mobile uses a compact accessible disclosure menu. Every anchor works without animation JavaScript and accounts for the sticky header.
+The sticky header contains only the PPC logo and a strategy-call CTA. There are no chapter links, mobile menu, resource links, or secondary product paths.
+
+Conversion opportunities appear:
+
+1. in the header;
+2. directly below the hero VSL;
+3. after student proof;
+4. after the three next-step instructions;
+5. in the final close.
+
+The repetition is intentional, but each CTA follows a new persuasion milestone rather than interrupting every section.
+
+## Video and proof architecture
+
+- Vimeo `1050034975` / `9fe7bb5ddc` is the primary VSL. The shorter Vimeo remains documented as an owner-selectable alternate, not a competing page element.
+- The VSL poster is visible in the hero; the player iframe is created only after click.
+- Cedrick, Kaley Kallman, and Kim P. appear as three public Testimonial.to/Mux-hosted video testimonials. Their players also load only on click.
+- Video-only cards receive neutral context. Written claims are attributed to separately published text reviews rather than inferred from spoken video.
+- Three written reviews follow the videos without a carousel.
 
 ## Content compression
 
-The old page repeats the same CTA and promise without explaining the service. The new structure keeps the important facts but compresses repeated sales language into:
+Removed from the previous redesign:
 
-- one clear hero promise;
-- one diagnosis section;
-- one process explanation;
-- one curated testimonial sequence;
-- one fit statement;
-- one FAQ;
-- one closing invitation.
+- editorial chapter numbers and section identities;
+- DAW/arrangement interaction;
+- scroll progress;
+- modal primary VSL;
+- testimonial carousel and controls;
+- full navigation/mobile overlay;
+- repeated Terence biography;
+- sharp dark/light environment changes.
 
-The old 14-step form is not recreated. Its qualification intent is retained through fit, investment, and strategy-call copy while personal data collection remains inside Calendly.
+The old 14-step application is not recreated. Its qualification intent is represented through fit, investment, and call-expectation copy while Calendly remains the only data-collection/scheduling surface.
 
 ## Progressive enhancement
 
-- Base state: complete semantic page, direct Calendly links, readable testimonials, legal routes.
-- JavaScript enhancement: menu state, lazy Vimeo dialog, scroll progress, section reveals, testimonial controls, and UTM forwarding.
-- Failure state: if JavaScript fails, no content or conversion path is lost.
-
+- Base: complete semantic page, direct Calendly links, visible media posters, written testimonials, legal routes, and no-JavaScript provider links.
+- Enhanced: short reveals, click-to-load Vimeo/Mux players, supported UTM forwarding, local CTA event, and one-open FAQ behavior.
+- Failure: no offer copy, proof text, legal route, or conversion link is lost if JavaScript fails.

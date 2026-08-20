@@ -16,6 +16,7 @@ const favicon = join(source, "current-favicon.png");
 
 const resizedWordmark = await sharp(wordmark)
   .resize({ width: 430, withoutEnlargement: true })
+  .negate({ alpha: false })
   .png()
   .toBuffer();
 
@@ -23,16 +24,16 @@ const overlay = Buffer.from(`
   <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="shade" x1="0" x2="1">
-        <stop offset="0" stop-color="#090A0B" stop-opacity="0.98" />
-        <stop offset="0.58" stop-color="#090A0B" stop-opacity="0.62" />
-        <stop offset="1" stop-color="#090A0B" stop-opacity="0.25" />
+        <stop offset="0" stop-color="#F8F6F1" stop-opacity="0.98" />
+        <stop offset="0.58" stop-color="#F8F6F1" stop-opacity="0.82" />
+        <stop offset="1" stop-color="#F8F6F1" stop-opacity="0.1" />
       </linearGradient>
     </defs>
     <rect width="1200" height="630" fill="url(#shade)" />
-    <rect x="64" y="314" width="10" height="196" fill="#FF5A3D" />
-    <text x="102" y="382" fill="#F2EFE7" font-family="Arial, sans-serif" font-size="60" font-weight="800" letter-spacing="-2">FINISH MUSIC THAT</text>
-    <text x="102" y="452" fill="#FF5A3D" font-family="Arial, sans-serif" font-size="60" font-weight="800" letter-spacing="-2">FEELS RELEASE-READY.</text>
-    <text x="102" y="505" fill="#C9C5BB" font-family="Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="2">PRIVATE PRODUCTION MENTORSHIP · TERENCE LAM</text>
+    <rect x="64" y="314" width="10" height="196" fill="#6841CC" />
+    <text x="102" y="382" fill="#18171D" font-family="Arial, sans-serif" font-size="60" font-weight="800" letter-spacing="-2">FINISH MUSIC YOU'RE</text>
+    <text x="102" y="452" fill="#6841CC" font-family="Arial, sans-serif" font-size="60" font-weight="800" letter-spacing="-2">PROUD TO RELEASE.</text>
+    <text x="102" y="505" fill="#59565D" font-family="Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="2">PRIVATE PRODUCTION MENTORSHIP · TERENCE LAM</text>
   </svg>
 `);
 
@@ -47,4 +48,3 @@ await sharp(poster)
 
 await sharp(favicon).resize(32, 32, { fit: "cover" }).png({ compressionLevel: 9 }).toFile(join(publicDir, "favicon-32.png"));
 await sharp(favicon).resize(180, 180, { fit: "cover" }).png({ compressionLevel: 9 }).toFile(join(publicDir, "apple-touch-icon.png"));
-

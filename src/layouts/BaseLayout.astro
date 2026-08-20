@@ -33,8 +33,8 @@ const socialImage = new URL(withBase("/social/ppc-social.jpg"), Astro.site ?? si
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#090A0B" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#F8F6F1" />
+    <meta name="color-scheme" content="light" />
     <meta name="robots" content={isProduction ? "index,follow,max-image-preview:large" : "noindex,nofollow,noarchive"} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -58,10 +58,8 @@ const socialImage = new URL(withBase("/social/ppc-social.jpg"), Astro.site ?? si
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
     <slot />
     {!hideFooter && <Footer />}
     <script src="../scripts/site.ts"></script>
   </body>
 </html>
-

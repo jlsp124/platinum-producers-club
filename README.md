@@ -1,19 +1,21 @@
-# Platinum Producers Club redesign
+# Platinum Producers Club sales-page redesign
 
-![Platinum Producers Club redesign desktop hero](docs/screenshots/qa/desktop-1440-hero.png)
+![Platinum Producers Club sales page desktop hero](docs/screenshots/qa/desktop-1440-hero.png)
 
-A portfolio-quality static redesign of the Platinum Producers Club music-production coaching funnel operated by Terence Lam / PROMU Music Group Ltd.
+A focused, static sales page for the Platinum Producers Club music-production mentorship operated by Terence Lam / PROMU Music Group Ltd.
 
-Status: independent public preview. The current production website, production DNS, existing Calendly event, and current funnel service remain separate and untouched.
+Status: independent public preview. The current production website, DNS, Calendly configuration, and funnel service remain separate and untouched.
 
-- [Open the public GitHub Pages preview](https://jlsp124.github.io/platinum-producers-club/)
+- [Open the GitHub Pages preview](https://jlsp124.github.io/platinum-producers-club/)
 - [View the public repository](https://github.com/jlsp124/platinum-producers-club)
 
 ## Purpose
 
-The site replaces a generic funnel-builder presentation with a fast, accessible, editorial experience focused on one conversion: helping a suitable producer reach Terence’s existing Release Ready Strategy Call in Calendly.
+Owner review on 2026-08-20 corrected the product direction: PPC is one mentorship offer for one audience with one primary action. The previous personal-brand/editorial direction is deferred to a possible future Terence Lam personal website.
 
-It does not rebuild scheduling, reminders, time-zone handling, meeting links, CRM behavior, or payments.
+The page now follows a simple sales progression: outcome and VSL, problem recognition, mentorship value, Terence credibility, process, real student proof, fit, next steps, FAQ, and a final Calendly action.
+
+The preview does not rebuild scheduling, reminders, time-zone handling, meeting links, CRM behavior, applications, or payments.
 
 ## Local development
 
@@ -34,43 +36,43 @@ npm run qa
 npm run screenshots
 ```
 
-`npm run qa` builds the static site, validates generated HTML, and runs the responsive Playwright/axe suite. The full evidence and current Lighthouse measurements are in [docs/testing-and-performance.md](docs/testing-and-performance.md).
+`npm run qa` builds the static site, validates generated HTML, and runs responsive Playwright/axe tests at 320, 375, 390, 430, 768, 1024, 1440, and 1728 CSS pixels. Current evidence is in [docs/testing-and-performance.md](docs/testing-and-performance.md).
 
 ## Architecture
 
-- Astro static output
-- TypeScript for the small progressively enhanced interaction layer
-- Plain CSS with a custom 12-column editorial system
-- Locally served Archivo variable font
+- Astro static output and GitHub Pages deployment
+- TypeScript for small progressive enhancements
+- Plain CSS and a locally served Archivo variable font
 - Sharp/Astro responsive AVIF and WebP generation
-- Native `<dialog>`, `<details>`, semantic links, and IntersectionObserver
-- No backend, database, CMS, UI framework, or client-side router
-- No analytics in the preview
+- Supported click-to-load Vimeo and Mux iframe players
+- Native semantic links and `<details>` FAQs
+- No backend, database, CMS, UI framework, carousel, or client-side router
+- No production analytics IDs in the preview
 
-The Vimeo player is lazy-created only after a visitor asks to watch it. All CTA links work without JavaScript.
+The VSL and testimonial players load only after a visitor presses play. All primary CTAs work without JavaScript.
 
 ## Calendly integration
 
-The canonical destination is:
+Every primary CTA points to:
 
 `https://calendly.com/terence-p-lam/release-ready-strategy-call`
 
-All major CTAs are normal same-tab links to that event. The interaction script forwards only `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` when present. It does not imitate or alter Calendly.
+Only supported `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` values are forwarded. A local `ppc:calendly-click` browser event exposes CTA context for a future owner-approved analytics integration; it sends nothing by itself.
 
 ## Preview and SEO modes
 
-The default build is a preview build:
+The default preview build:
 
-- canonical metadata points to `https://platinumproducersclub.com/`;
-- meta robots is `noindex,nofollow,noarchive`;
-- `robots.txt` disallows crawling;
-- the current production domain remains authoritative.
+- points canonical metadata to `https://platinumproducersclub.com/`;
+- uses `noindex,nofollow,noarchive`;
+- disallows crawling through `robots.txt`;
+- leaves the current production domain authoritative.
 
-Production indexing is deliberately gated behind `PUBLIC_SITE_MODE=production` and the approved migration checklist. Do not set it for the GitHub Pages preview.
+Production indexing is gated behind `PUBLIC_SITE_MODE=production` and the approved migration checklist. Do not enable it for GitHub Pages.
 
 ## GitHub Pages deployment
 
-`.github/workflows/pages.yml` validates the project, builds with `BASE_PATH=/<repository>`, checks local paths/noindex, uploads the static artifact, and deploys through GitHub Pages on every push to `main`.
+`.github/workflows/pages.yml` validates the project, builds with the repository base path, verifies the preview noindex guard, uploads the static artifact, and deploys on every push to `main`.
 
 The workflow does not create a custom domain, write a `CNAME`, or touch production DNS.
 
@@ -78,21 +80,22 @@ The workflow does not create a custom domain, write a `CNAME`, or touch producti
 
 ```text
 src/
-  assets/source/       Owner/business source assets retained locally
-  components/          Header, footer, CTA, video-dialog primitives
-  data/                Stable site/Calendly constants
+  assets/source/       Owner/business source assets
+  components/          Shared header, footer, and Calendly CTA
+  data/                Site and Calendly constants
   layouts/             Shared metadata and page shell
-  pages/               Homepage, legal routes, robots, sitemap, 404
+  pages/               Sales page, legal routes, robots, sitemap, 404
   scripts/             Progressive enhancement
-  styles/              Design system and responsive implementation
-docs/                  Audit, strategy, verification, QA, migration notes
-scripts/               Build-time assets, screenshots, Pages validation
-tests/                 Playwright and axe critical-flow suite
-public/                Generated social/favicons and Pages marker
+  styles/              Sales-page design system and responsive rules
+docs/                  Audit, reference analysis, QA, and migration notes
+scripts/               Build assets, screenshots, and Pages validation
+tests/                 Playwright and axe sales-flow suite
+public/                Generated social and favicon assets
 ```
 
 ## Documentation
 
+- [Reference sales-page analysis](docs/reference-sales-page-analysis.md)
 - [Current-site audit](docs/current-site-audit.md)
 - [Information architecture](docs/information-architecture.md)
 - [Redesign rationale](docs/redesign-rationale.md)
@@ -104,8 +107,6 @@ public/                Generated social/favicons and Pages marker
 - [Production migration checklist](docs/production-migration-checklist.md)
 - [Third-party licenses and asset provenance](docs/third-party-licenses.md)
 
-## Production launch boundary
+## Production boundary
 
-This repository is not authorization to migrate production. Before any custom-domain or service change, Terence must approve the design/copy/assets, legal and tracking requirements must be confirmed, the full Calendly booking must be tested with permission, current DNS and platform content must be backed up, redirects must be planned, and rollback must remain available.
-
-Only after a successful migration and rollback window should Terence consider cancelling the existing approximately $100/month website service. No saving is promised before that verification.
+This repository is not authorization to migrate production. Terence must approve the design, copy, claims, testimonials, legal text, and tracking plan before any custom-domain or platform change. A complete Calendly booking also requires owner permission and is deliberately not performed by the automated suite.

@@ -1,53 +1,61 @@
 # Redesign rationale
 
-## The strategic change
+## Owner-review correction
 
-The redesign changes PPC from a template-shaped sales funnel into a coach-led editorial story. The visual system behaves like a contemporary record campaign crossed with a precise studio session: human imagery carries the emotion; the typography carries conviction; a restrained timeline/grid language provides technical structure.
+Terence’s direct review established that the earlier redesign was attractive but too scattered and over-designed for the business goal. Platinum Producers Club is a single-offer mentorship sales page, not a personal-brand editorial site.
 
-The Steven Bartlett site was studied as a quality and design-philosophy reference. The useful lessons are the strength of a full-canvas first impression, confident type, real photography, responsive art direction, section-by-section storytelling, and visible motion. PPC does not reuse its palette, fonts, layouts, copy, assets, or animation sequences.
+The Steven Bartlett direction was a category error for PPC and is deferred to a possible future Terence Lam personal website. Creator College informed the revised sales discipline—one offer, visible media, linear argument, concrete value, human credibility, proof, repeated action, and FAQ—without donating branding, copy, proprietary assets, code, layouts, urgency, guarantees, or pricing mechanics.
 
-## Audit finding → design response
+See `reference-sales-page-analysis.md` for the concise three-way sales-system comparison.
 
-| Current issue | Redesign response |
+## Audit finding → revised response
+
+| Finding | Revised response |
 | --- | --- |
-| Three primary CTAs are inert | Every major CTA is a normal semantic anchor to the verified clean Calendly event, covered by automated tests |
-| GoHighLevel calendar does not match the owner-specified Calendly event | The preview bypasses the old calendar and links directly to Calendly; migration mismatch is documented |
-| High-friction 14-step survey | Qualification moves into clear fit/FAQ copy; Calendly retains scheduling and any owner-configured questions |
-| Generic purple funnel styling | Near-black, warm paper, and one signal-orange accent derived from studio record/meter language |
-| Terence is visually secondary | Real Terence imagery owns the hero, overview video, and coach story |
-| Repetitive centered blocks | Alternating full-canvas editorial compositions, rules, ledgers, and a sticky arrangement sequence |
-| Huge external testimonial wall | A small set of existing attributable testimonials is curated into a manual editorial sequence |
-| Weak mobile / clipped content | Mobile gets a different media crop, type scale, navigation, section spacing, and non-sticky process layout |
-| Broken legal host | Archived owner-authored pages are preserved locally and explicitly flagged for owner/legal review |
-| Empty robots/sitemap and missing canonical | Preview-safe noindex/robots behavior, production canonical strategy, social metadata, semantic headings, and a launch checklist |
-| Heavy third-party runtime | Static Astro output, local optimized images/fonts, no framework hydration, and lazy Vimeo loading |
+| Production CTAs are inert | Five normal semantic Calendly anchors use the verified clean event URL and are covered by automated tests |
+| Primary VSL was secondary in the repository redesign | The 6:48 “VSL new3-FINAL” is the dominant hero media and loads through Vimeo only after click |
+| Offer explanation was buried in editorial storytelling | The first sections plainly name the buyer’s problem and what direct mentorship provides |
+| Sticky DAW/arrangement metaphor required interpretation | Four short static steps explain the process without custom interaction |
+| Section numbering made the page a magazine feature | Functional labels replace editorial chapters; only the actual process uses step numbers |
+| Dark/light/orange systems felt stitched together | One warm-light system with subtle surface changes and one violet action color runs through the page |
+| Testimonial carousel hid proof | Three real provider-hosted video testimonials and three written excerpts are visible in sequence |
+| Large external wall was heavy and visually inconsistent | Curated Mux players instantiate only on click; no video is downloaded or rehosted |
+| Terence story was too broad | One short coach section answers why he is relevant to this mentorship |
+| High-friction 14-step application | Fit and FAQ retain qualification intent; Calendly remains the only scheduling/data surface |
+| Old mobile funnel clipped at 320–390px | Phone-first layout is tested at 320, 375, 390, and 430px plus tablet/desktop targets |
+| Broken legal host and weak SEO | Existing local legal recovery, preview noindex, canonical, sitemap, robots, and migration controls remain intact |
 
-## Brand translation
+## Sales and copy decisions
 
-The page uses production concepts abstractly:
+- The strongest promise is finishing music the producer is proud to release—not guaranteed charts, placements, or income.
+- The page preserves the old funnel’s useful school/tutorial/gear logic without its unsupported scarcity line.
+- Mentorship is made concrete through direct feedback, individual direction, next steps, workflow guidance, and accountability.
+- Existing experience, artist, Ableton, and student claims remain at or below their current public strength and stay on the owner-verification checklist.
+- Video-only testimonials are not assigned invented spoken outcomes. Cedrick and Kim context is explicitly tied to separately published written reviews.
+- The call is described as a fit conversation, not acceptance or a guaranteed coaching outcome.
 
-- a thin playback/progress line rather than decorative waveforms;
-- track labels and timecode-like indices rather than a literal DAW UI;
-- hard editorial rules rather than glass cards;
-- signal orange as a recording/action cue rather than neon gradients;
-- monochrome studio photography with selective color rather than stock DJ imagery;
-- compact production language (“listen,” “focus,” “finish”) rather than hype slogans.
+## Visual decisions
 
-## Copy strategy
+- The VSL replaces a full-bleed campaign image as the hero anchor.
+- The existing PPC wordmark, studio video poster, Terence portrait, and Ableton badge provide brand continuity.
+- One warm-white canvas, near-black type, restrained violet, 1px rules, and capped measures keep the page premium without becoming the experience.
+- Sections use plain grids and lists; card-like framing is limited to media and one conversion callout.
+- The final violet close gives the long page one deliberate visual peak.
 
-The strongest claim is framed as the work: finishing music with clearer decisions and detailed feedback. Existing major-artist, experience, certification, and testimonial claims remain at or below their current strength and are listed for owner verification. The redesign removes the unverified “five spots” scarcity line and avoids promises of chart positions, placements, income, or guaranteed results.
+## Motion and performance
 
-## Technology decision
+Motion is limited to short reveal, button, media-hover, and FAQ transitions. Removed systems include scroll progress, sticky storytelling, carousel motion, modal video, chapter transitions, and menu animation.
 
-Astro with TypeScript and plain CSS/JavaScript is selected because it provides:
+The primary Vimeo and three Mux players are click-to-load. Initial rendering remains static Astro HTML/CSS with local font and optimized owner imagery. No animation or UI runtime is added.
 
-- fully static GitHub Pages output;
-- semantic multi-page legal routes;
-- zero client JavaScript by default;
-- componentized, maintainable source;
-- optimized local assets;
-- predictable base-path handling;
-- no backend or paid runtime.
+## Technical continuity
 
-No animation framework is required. IntersectionObserver, CSS transitions, and one requestAnimationFrame scroll-progress update deliver the intended motion at a much smaller cost.
+The revision preserves:
 
+- Astro static project structure and TypeScript;
+- GitHub Pages workflow and repository base-path handling;
+- responsive image generation and local font serving;
+- semantic headings, skip link, focus states, reduced motion, and axe tests;
+- Calendly URL/UTM handling;
+- legal pages, canonical/social metadata, robots, sitemap, and preview noindex guard;
+- responsive screenshot tooling, Playwright validation, migration documents, and Git history.

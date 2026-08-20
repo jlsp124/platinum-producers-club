@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import ppcLogo from "../assets/source/current-01.png";
-import promuLogo from "../assets/source/current-brand.svg";
 import { site } from "../data/site";
 import { withBase } from "../lib/urls";
 
@@ -9,31 +8,32 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="site-footer__top">
-    <a class="site-footer__brand" href={withBase("/")} aria-label="Platinum Producers Club home">
-      <Image src={ppcLogo} alt="Platinum Producers Club" width={300} quality={95} loading="lazy" />
-    </a>
-    <p>Private music-production mentorship with {site.coach}.</p>
-    <a class="site-footer__email" href={`mailto:${site.email}`}>{site.email}</a>
-  </div>
-
-  <div class="site-footer__legal-grid">
-    <div>
-      <span class="eyebrow">Operated by</span>
-      <Image class="site-footer__promu" src={promuLogo} alt="PROMU Music Group Ltd." width={190} loading="lazy" />
+  <div class="page-shell site-footer__main">
+    <div class="site-footer__brand-block">
+      <a class="site-footer__brand" href={withBase("/")} aria-label="Platinum Producers Club home">
+        <Image src={ppcLogo} alt="Platinum Producers Club" width={300} quality={95} loading="lazy" />
+      </a>
+      <p>Private music-production mentorship with {site.coach}.</p>
     </div>
-    <nav aria-label="Legal">
+
+    <div class="site-footer__contact">
+      <span>Questions?</span>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+
+    <nav class="site-footer__links" aria-label="Legal">
       <a href={withBase("/privacy/")}>Privacy policy</a>
       <a href={withBase("/terms/")}>Terms of service</a>
     </nav>
   </div>
 
-  <p class="site-footer__disclaimer">
-    This site is not a part of the YouTube, Bing Google or Facebook website; Google Inc, Microsoft INC or Meta Inc. Additionally, This site is NOT endorsed by YouTube, Google, Bing or Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc. YOUTUBE is a trademark of GOOGLE Inc. BING is a trademark of MICROSOFT Inc.
-  </p>
-
-  <div class="site-footer__base">
-    <p>Copyright © {year} {site.company} All rights reserved.</p>
-    <p class="preview-status"><span></span> Independent redesign preview — production remains separate</p>
+  <div class="page-shell">
+    <p class="site-footer__disclaimer">
+      This site is not a part of the YouTube, Bing Google or Facebook website; Google Inc, Microsoft INC or Meta Inc. Additionally, This site is NOT endorsed by YouTube, Google, Bing or Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc. YOUTUBE is a trademark of GOOGLE Inc. BING is a trademark of MICROSOFT Inc.
+    </p>
+    <div class="site-footer__base">
+      <p>Copyright © {year} {site.company} All rights reserved.</p>
+      <p class="preview-status">Independent redesign preview — production remains separate</p>
+    </div>
   </div>
 </footer>

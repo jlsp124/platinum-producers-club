@@ -7,9 +7,10 @@ test.beforeEach(async ({ page }) => {
   await page.waitForLoadState("networkidle");
 });
 
-test("renders without horizontal overflow or broken local images", async ({ page }) => {
+test("renders the focused offer without overflow or broken images", async ({ page }) => {
   await expect(page).toHaveTitle(/Platinum Producers Club/);
   await expect(page.locator("#hero-title")).toContainText("Finish music");
+  await expect(page.locator("[data-provider-video]").first()).toBeVisible();
 
   const dimensions = await page.evaluate(() => ({
     clientWidth: document.documentElement.clientWidth,
@@ -38,9 +39,10 @@ test("keeps every application CTA on the verified Calendly event", async ({ page
   }
 });
 
-test("passes supported campaign parameters to Calendly and drops unrelated parameters", async ({ page }) => {
+test("passes supported campaign parameters and emits a private local conversion event", async ({ page }) => {
   await page.goto("./?utm_source=studio&utm_medium=referral&utm_campaign=august&private_token=nope");
-  const href = await page.locator("a.js-calendly").first().getAttribute("href");
+  const link = page.locator("a.js-calendly").first();
+  const href = await link.getAttribute("href");
   const destination = new URL(href!);
 
   expect(destination.origin + destination.pathname).toBe(calendlyUrl);
@@ -48,51 +50,50 @@ test("passes supported campaign parameters to Calendly and drops unrelated param
   expect(destination.searchParams.get("utm_medium")).toBe("referral");
   expect(destination.searchParams.get("utm_campaign")).toBe("august");
   expect(destination.searchParams.has("private_token")).toBe(false);
+
+  await page.evaluate(() => {
+    (window as Window & { ppcClickContext?: string }).ppcClickContext = "";
+    window.addEventListener("ppc:calendly-click", ((event: CustomEvent<{ context: string }>) => {
+      (window as Window & { ppcClickContext?: string }).ppcClickContext = event.detail.context;
+    }) as EventListener);
+  });
+  await link.evaluate((element) => element.addEventListener("click", (event) => event.preventDefault()));
+  await link.click();
+  expect(await page.evaluate(() => (window as Window & { ppcClickContext?: string }).ppcClickContext)).toBe("header");
 });
 
-test("opens the overview in the native dialog and restores focus on close", async ({ page }) => {
+test("loads the primary Vimeo VSL only after the visible poster is clicked", async ({ page }) => {
   await page.route("https://player.vimeo.com/**", (route) => route.fulfill({ status: 204 }));
-  const opener = page.locator("[data-video-open]");
-  await opener.click();
-
-  const dialog = page.locator("[data-video-dialog]");
-  await expect(dialog).toHaveJSProperty("open", true);
-  await expect(dialog.locator("iframe")).toHaveAttribute("src", /1047620937/);
-  await dialog.locator("[data-video-close]").click();
-  await expect(dialog).not.toHaveJSProperty("open", true);
-  await expect(opener).toBeFocused();
+  const heroVideo = page.locator("[data-provider-video]").first();
+  await expect(heroVideo.locator("iframe")).toHaveCount(0);
+  await heroVideo.locator("[data-player-open]").click();
+  await expect(heroVideo.locator("iframe")).toHaveAttribute("src", /1050034975/);
+  await expect(heroVideo.locator("iframe")).toHaveAttribute("title", "Platinum Producers Club program overview");
 });
 
-test("testimonial controls and FAQ behave predictably", async ({ page }) => {
-  await page.locator("#results").scrollIntoViewIfNeeded();
-  await expect(page.locator("[data-testimonial-count]")).toHaveText("01 / 04");
-  await page.locator("[data-testimonial-next]").click();
-  await expect(page.locator("[data-testimonial-count]")).toHaveText("02 / 04");
-  await expect(page.locator("[data-testimonial]:visible strong")).toHaveText("Grace Leeswadtrakul");
+test("loads real Mux testimonial media on demand and leaves other players dormant", async ({ page }) => {
+  await page.route("https://player.mux.com/**", (route) => route.fulfill({ status: 204 }));
+  const videos = page.locator(".video-proof [data-provider-video]");
+  await expect(videos).toHaveCount(3);
+  await videos.first().scrollIntoViewIfNeeded();
+  await videos.first().locator("[data-player-open]").click();
+  await expect(videos.first().locator("iframe")).toHaveAttribute("src", /JdlyyKMnxXeNXeYKQxuEhXVmBYqPWg3LQZvkj1imbsY/);
+  await expect(videos.nth(1).locator("iframe")).toHaveCount(0);
+  await expect(videos.nth(2).locator("iframe")).toHaveCount(0);
+});
 
+test("FAQ behaves predictably and the header has no distracting navigation", async ({ page }) => {
   const faq = page.locator(".faq-item");
   await faq.nth(2).locator("summary").click();
   await expect(faq.nth(2)).toHaveAttribute("open", "");
-  await expect(faq.first()).not.toHaveAttribute("open", "");
-});
+  await faq.first().locator("summary").click();
+  await expect(faq.first()).toHaveAttribute("open", "");
+  await expect(faq.nth(2)).not.toHaveAttribute("open", "");
 
-test("mobile navigation is keyboard-closeable and desktop navigation stays visible", async ({ page }) => {
-  const mobile = page.viewportSize()!.width < 1200;
-  const toggle = page.locator("[data-menu-toggle]");
-
-  if (mobile) {
-    await expect(toggle).toBeVisible();
-    await toggle.click();
-    await expect(toggle).toHaveAttribute("aria-expanded", "true");
-    await expect(page.locator("[data-mobile-menu]")).toBeVisible();
-    await page.keyboard.press("Escape");
-    await expect(toggle).toHaveAttribute("aria-expanded", "false");
-    await expect(page.locator("[data-mobile-menu]")).toBeHidden();
-  } else {
-    await expect(toggle).toBeHidden();
-    await expect(page.locator(".site-header__nav")).toBeVisible();
-    await expect(page.locator(".header-cta")).toBeVisible();
-  }
+  await expect(page.locator(".site-header__brand")).toBeVisible();
+  await expect(page.locator(".header-cta")).toBeVisible();
+  await expect(page.locator(".site-header nav")).toHaveCount(0);
+  await expect(page.locator("[data-menu-toggle]")).toHaveCount(0);
 });
 
 test("all same-origin document links resolve", async ({ page, request, baseURL }) => {
@@ -110,7 +111,7 @@ test("all same-origin document links resolve", async ({ page, request, baseURL }
   }
 });
 
-test("built page reports no console errors, failed requests, or same-origin 4xx/5xx responses", async ({ page, baseURL }) => {
+test("built page reports no console errors, failed local requests, or local 4xx/5xx responses", async ({ page, baseURL }) => {
   const consoleErrors: string[] = [];
   const failedRequests: string[] = [];
   const badResponses: string[] = [];
@@ -134,7 +135,7 @@ test("built page reports no console errors, failed requests, or same-origin 4xx/
   expect(badResponses).toEqual([]);
 });
 
-test("reduced-motion visitors receive visible, non-transitioning content", async ({ page }) => {
+test("reduced-motion visitors receive visible, effectively non-transitioning content", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
   const reveal = page.locator("[data-reveal]").first();
