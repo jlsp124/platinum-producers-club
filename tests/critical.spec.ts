@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 const calendlyUrl = "https://calendly.com/terence-p-lam/release-ready-strategy-call";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("/");
+  await page.goto("./");
   await page.waitForLoadState("networkidle");
 });
 
@@ -39,7 +39,7 @@ test("keeps every application CTA on the verified Calendly event", async ({ page
 });
 
 test("passes supported campaign parameters to Calendly and drops unrelated parameters", async ({ page }) => {
-  await page.goto("/?utm_source=studio&utm_medium=referral&utm_campaign=august&private_token=nope");
+  await page.goto("./?utm_source=studio&utm_medium=referral&utm_campaign=august&private_token=nope");
   const href = await page.locator("a.js-calendly").first().getAttribute("href");
   const destination = new URL(href!);
 

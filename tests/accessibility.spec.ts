@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 test("homepage has no automatically detectable serious accessibility violations", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("./");
   await page.waitForLoadState("networkidle");
 
   const results = await new AxeBuilder({ page })
@@ -13,7 +13,7 @@ test("homepage has no automatically detectable serious accessibility violations"
 });
 
 test("skip link and visible focus treatment work from the keyboard", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("./");
   await page.keyboard.press("Tab");
   const skipLink = page.locator(".skip-link");
   await expect(skipLink).toBeFocused();
