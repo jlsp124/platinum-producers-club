@@ -24,7 +24,7 @@ The focused preview is visually complete with recovered public PPC assets. These
 4. Provide the official PPC logo package
    - SVG/EPS/PDF wordmark and mark.
    - Light/dark variants, clearspace, and minimum-size guidance.
-   - The recovered transparent PNG works, but CSS must force it to a single white treatment.
+   - The recovered transparent PNG works, but CSS currently forces it to a single black treatment for the light preview.
 
 ## Offer detail
 

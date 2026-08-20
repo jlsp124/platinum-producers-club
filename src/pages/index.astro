@@ -26,48 +26,44 @@ const mentorshipBenefits = [
   "Detailed feedback on the music you are actually making",
   "Individual direction instead of another generic tutorial path",
   "Specific next steps you can take back into the session",
-  "Workflow guidance that helps you make decisions and keep moving",
   "Accountability and perspective as your tracks develop"
 ];
 
 const methodSteps = [
   {
     title: "Bring your music.",
-    copy: "Start with your real sessions, references, questions, and the point where progress keeps stalling."
+    copy: "Start with the sessions, references, and questions you already have."
   },
   {
     title: "Find the bottleneck.",
-    copy: "Terence listens for the decision with the highest value—whether it is arrangement, sound choice, energy, workflow, or finish."
+    copy: "Identify the decision that is doing the most to hold the track back."
   },
   {
     title: "Get focused direction.",
-    copy: "Turn detailed feedback into practical changes and a clear plan for what to work on next."
+    copy: "Turn detailed feedback into practical changes and a clear next move."
   },
   {
     title: "Apply it and finish stronger.",
-    copy: "Use the feedback in your own music while building judgement you can carry into the next record."
+    copy: "Use the feedback while building judgement you can carry forward."
   }
 ];
 
 const videoTestimonials = [
   {
     name: "Cedrick",
-    context: "Producer · video testimonial",
-    note: "In his written review, Cedrick said he completed the mentorship with greater confidence and tools to keep improving.",
+    caption: "Greater confidence and practical tools to keep improving.",
     poster: "https://image.mux.com/JdlyyKMnxXeNXeYKQxuEhXVmBYqPWg3LQZvkj1imbsY/thumbnail.jpg?time=19.449666666666666&width=900",
     player: "https://player.mux.com/JdlyyKMnxXeNXeYKQxuEhXVmBYqPWg3LQZvkj1imbsY?metadata-video-title=Cedrick%20testimonial&accent-color=%236841cc"
   },
   {
     name: "Kaley Kallman",
-    context: "Producer · video testimonial",
-    note: "A public video testimonial shared through the Platinum Producers Club Testimonial.to wall.",
+    caption: "A producer sharing her Platinum Producers Club experience.",
     poster: "https://image.mux.com/qOx2q4YMwErEG35wyZUskQu5gwmUm00XJhhzcmFhCVLw/thumbnail.jpg?width=900",
     player: "https://player.mux.com/qOx2q4YMwErEG35wyZUskQu5gwmUm00XJhhzcmFhCVLw?metadata-video-title=Kaley%20Kallman%20testimonial&accent-color=%236841cc"
   },
   {
     name: "Kim P.",
-    context: "Producer · video testimonial",
-    note: "In her written review, Kim described progressing from zero experience to four beats and a polished vocal song.",
+    caption: "From zero experience to four beats and a polished vocal song.",
     poster: "https://image.mux.com/vUeCbadPJNCnVebnqP1NPOnG3h02rPiY02FFCWKKO1X8U/thumbnail.jpg?width=900",
     player: "https://player.mux.com/vUeCbadPJNCnVebnqP1NPOnG3h02rPiY02FFCWKKO1X8U?metadata-video-title=Kim%20P%20testimonial&accent-color=%236841cc"
   }
@@ -92,18 +88,17 @@ const fitPoints = [
   "You are making music—or are genuinely ready to start making it consistently.",
   "You want direct, detailed feedback and are willing to apply it.",
   "You are tired of piecing together random advice without a clear priority.",
-  "You want to improve with the setup you already have instead of buying your way around the problem.",
   "You care about finishing stronger music, not chasing an overnight shortcut."
 ];
 
 const faqs = [
   {
     question: "Do I need expensive gear or a professional studio?",
-    answer: "No. PPC’s current offer is built around improving skill and decision-making without requiring a fully equipped studio. You need a workable setup for making, listening to, and exporting music—not a room full of new gear."
+    answer: "No. You need a workable setup for making, listening to, and exporting music—not a room full of new gear. PPC focuses on the skill and decisions behind the record."
   },
   {
     question: "What experience level is the mentorship for?",
-    answer: "The current PPC application speaks to producers from complete beginners through working producers who want to move from good to great. The strategy call is where you and Terence can confirm whether your current level and goals are a fit."
+    answer: "It can fit complete beginners through working producers who want sharper judgement and more consistent finishes. The strategy call confirms whether your current level and goals match the program."
   },
   {
     question: "What happens on the strategy call?",
@@ -111,11 +106,11 @@ const faqs = [
   },
   {
     question: "What does the mentorship cost?",
-    answer: "The current public application says the mentorship may require a four-figure investment, but it does not publish a verified current price. If the fit is right, Terence can explain the current scope and investment on the call."
+    answer: "PPC is a high-touch mentorship that may require a four-figure investment. If the fit is right, Terence will explain the current scope and investment on the call."
   },
   {
     question: "Are placements, income, or chart results guaranteed?",
-    answer: "No. Mentorship can provide feedback, structure, and perspective; it cannot guarantee a placement, payment, or chart position. Student stories describe individual experiences and are not a promise of typical results."
+    answer: "No. Mentorship can provide feedback, structure, and perspective; it cannot guarantee a placement, payment, or chart position. Student stories describe individual experiences."
   }
 ];
 ---
@@ -165,22 +160,19 @@ const faqs = [
           </div>
 
           <div class="hero-offer__action">
-            <div>
-              <strong>See if mentorship fits your music.</strong>
-              <p>Book a real one-to-one Release Ready Strategy Call with Terence.</p>
-            </div>
             <StrategyLink label="Book your strategy session" context="hero" />
+            <p>A one-to-one fit conversation with Terence. Booking does not guarantee acceptance.</p>
           </div>
-          <p class="hero-offer__qualifier">A conversation about fit—not a guarantee of acceptance or results.</p>
         </div>
       </div>
     </section>
 
-    <section class="problem-section section" aria-labelledby="problem-title">
+    <section class="transformation-section section" id="mentorship" aria-labelledby="problem-title">
       <div class="page-shell">
         <header class="section-heading section-heading--center" data-reveal>
           <p class="kicker">If this sounds familiar</p>
           <h2 id="problem-title">You don’t need more information. You need to know what your music needs next.</h2>
+          <p>Tutorials, new gear, and more trial-and-error cannot tell you which decision is holding this track back.</p>
         </header>
 
         <div class="problem-list">
@@ -192,25 +184,19 @@ const faqs = [
           ))}
         </div>
 
-        <p class="problem-section__close" data-reveal>
-          You do not need a $25,000 music school or a studio full of equipment to get unstuck. You need useful feedback on the work in front of you.
-        </p>
-      </div>
-    </section>
-
-    <section class="mentorship-section section" id="mentorship" aria-labelledby="mentorship-title">
-      <div class="page-shell split-section">
-        <header class="section-heading" data-reveal>
+        <div class="mentorship-shift">
+          <header data-reveal>
           <p class="kicker">What changes with mentorship</p>
-          <h2 id="mentorship-title">Stop guessing. Start making the next decision with purpose.</h2>
+            <h3>Direct feedback turns uncertainty into a clear next move.</h3>
           <p>
             Platinum Producers Club is direct production mentorship built around your music—not another pile of content to work through alone.
           </p>
-        </header>
+          </header>
 
-        <ul class="benefit-list" data-reveal>
-          {mentorshipBenefits.map((benefit) => <li><span aria-hidden="true">✓</span>{benefit}</li>)}
-        </ul>
+          <ul class="benefit-list" data-reveal>
+            {mentorshipBenefits.map((benefit) => <li><span aria-hidden="true">✓</span>{benefit}</li>)}
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -229,16 +215,14 @@ const faqs = [
         </figure>
 
         <div class="coach-section__copy" data-reveal>
-          <p class="kicker">Why Terence</p>
-          <h2 id="coach-title">A producer’s ear. A coach’s clarity. Focused on your music.</h2>
+          <p class="kicker">Your mentor</p>
+          <h2 id="coach-title">A producer’s ear. A coach’s clarity.</h2>
           <p class="coach-section__lead">
             Terence “polun” Lam is a producer, coach, and Ableton Certified Trainer who turns what he hears into practical next steps you can use in the session.
           </p>
-
-          <dl class="credential-list">
-            <div><dt>15 years</dt><dd>of real-world experience stated in PPC’s current public materials</dd></div>
-            <div><dt>Major-artist work</dt><dd>current PPC materials cite songs involving Drake, Alessia Cara, and Meghan Trainor</dd></div>
-          </dl>
+          <p class="coach-section__credibility">
+            His PPC profile cites 15 years of experience and work connected to songs involving Drake, Alessia Cara, and Meghan Trainor.
+          </p>
 
           <Image
             class="ableton-mark"
@@ -248,7 +232,9 @@ const faqs = [
             quality={92}
             loading="lazy"
           />
-          <p class="claim-note">Existing public PPC claims and credential; owner confirmation remains required before production migration.</p>
+          <div class="coach-section__action">
+            <StrategyLink label="Book your strategy session" context="coach" />
+          </div>
         </div>
       </div>
     </section>
@@ -256,14 +242,13 @@ const faqs = [
     <section class="process-section section" id="process" aria-labelledby="process-title">
       <div class="page-shell">
         <header class="section-heading section-heading--center" data-reveal>
-          <p class="kicker">How it works</p>
           <h2 id="process-title">Four simple steps. Your music stays at the centre.</h2>
         </header>
 
         <ol class="process-list">
           {methodSteps.map((step, index) => (
             <li data-reveal>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span>{index + 1}</span>
               <div><h3>{step.title}</h3><p>{step.copy}</p></div>
             </li>
           ))}
@@ -307,8 +292,7 @@ const faqs = [
               </div>
               <figcaption>
                 <strong>{testimonial.name}</strong>
-                <span>{testimonial.context}</span>
-                <p>{testimonial.note}</p>
+                <p>{testimonial.caption}</p>
               </figcaption>
             </figure>
           ))}
@@ -326,45 +310,41 @@ const faqs = [
         <p class="results-disclaimer">Testimonials describe individual experiences. Results vary and are not guaranteed.</p>
 
         <div class="section-conversion" data-reveal>
-          <div><strong>Want focused direction on your music?</strong><p>Start with a one-to-one fit call.</p></div>
           <StrategyLink label="Book your strategy session" context="results" />
+          <p>Want focused direction on your music? Start with a one-to-one fit call.</p>
         </div>
       </div>
     </section>
 
-    <section class="fit-section section" aria-labelledby="fit-title">
-      <div class="page-shell split-section">
-        <header class="section-heading" data-reveal>
-          <p class="kicker">Who this is for</p>
-          <h2 id="fit-title">For producers ready to make music—and use the feedback.</h2>
-          <p>
-            This is active mentorship. It works best when you are willing to share the work, hear an honest perspective, and put the next step into practice.
-          </p>
-          <p class="fit-section__note">Probably not for you if you want a guaranteed placement, income result, or one-plugin shortcut.</p>
-        </header>
-
-        <ul class="fit-list" data-reveal>
-          {fitPoints.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
-        </ul>
-      </div>
-    </section>
-
-    <section class="next-step-section section" aria-labelledby="next-step-title">
+    <section class="fit-next-section section" aria-labelledby="fit-title">
       <div class="page-shell">
         <header class="section-heading section-heading--center" data-reveal>
-          <p class="kicker">What happens next</p>
-          <h2 id="next-step-title">The next step is a conversation—not a commitment.</h2>
+          <p class="kicker">Is PPC right for you?</p>
+          <h2 id="fit-title">Come ready to make music—and use the feedback.</h2>
+          <p>This is active mentorship for producers willing to share the work, hear an honest perspective, and put the next step into practice.</p>
         </header>
 
-        <ol class="next-step-list">
-          <li data-reveal><span>1</span><div><strong>Choose a time.</strong><p>Calendly shows Terence’s current availability in your time zone.</p></div></li>
-          <li data-reveal><span>2</span><div><strong>Talk directly with Terence.</strong><p>Discuss your music, goals, current bottleneck, and the support you are looking for.</p></div></li>
-          <li data-reveal><span>3</span><div><strong>Decide if it fits.</strong><p>You will determine together whether the mentorship is an appropriate next step.</p></div></li>
-        </ol>
+        <div class="fit-next-section__grid">
+          <div data-reveal>
+            <h3>You’ll get the most from PPC if...</h3>
+            <ul class="fit-list">
+              {fitPoints.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
+            </ul>
+          </div>
 
-        <div class="next-step-section__action" data-reveal>
-          <StrategyLink label="See available times" context="next-steps" />
-          <p>Booking does not guarantee acceptance into the mentorship.</p>
+          <div data-reveal>
+            <h3>What happens after you book.</h3>
+            <ol class="next-step-list">
+              <li><span>1</span><div><strong>Choose a time.</strong><p>See Terence’s current availability in your time zone.</p></div></li>
+              <li><span>2</span><div><strong>Talk directly.</strong><p>Discuss your music, goals, current bottleneck, and the support you want.</p></div></li>
+              <li><span>3</span><div><strong>Decide if it fits.</strong><p>Determine together whether the mentorship is an appropriate next step.</p></div></li>
+            </ol>
+
+            <div class="next-step-section__action">
+              <StrategyLink label="Book your strategy session" context="next-steps" />
+              <p>Booking does not guarantee acceptance into the mentorship.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -372,7 +352,6 @@ const faqs = [
     <section class="faq-section section" id="faq" aria-labelledby="faq-title">
       <div class="page-shell faq-section__grid">
         <header class="section-heading" data-reveal>
-          <p class="kicker">Frequently asked</p>
           <h2 id="faq-title">Questions before you book.</h2>
         </header>
 

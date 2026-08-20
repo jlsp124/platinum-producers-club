@@ -26,16 +26,14 @@ There is no client-side router, backend, custom application form, or embedded sc
 | Order | Section | One job | Primary takeaway/action |
 | ---: | --- | --- | --- |
 | 1 | Hero + VSL | State the outcome and show the pitch | Private mentorship to help producers finish music they are proud to release; watch the 6:48 VSL and book a strategy session |
-| 2 | Core problem | Mirror the buyer’s frustration | Tutorials, unfinished sessions, and more gear do not identify the next decision |
-| 3 | Mentorship value | Explain the product | Direct feedback, individual direction, specific next steps, workflow guidance, and accountability |
-| 4 | Terence credibility | Answer “why this coach?” | Producer/coach, Ableton credential, and existing public experience/credit claims at their documented confidence level |
-| 5 | How it works | Remove process ambiguity | Bring music, identify the bottleneck, get focused direction, apply it, and finish stronger |
-| 6 | Student results | Provide human proof | Three visible video testimonials, three written excerpts, and a non-guarantee note |
-| 7 | Who it is for | Qualify positively | Producers ready to make music, hear direct feedback, and apply it |
-| 8 | What happens next | Make conversion safe and obvious | Choose a Calendly time, speak with Terence, decide whether the mentorship fits |
-| 9 | FAQ | Resolve practical objections | Gear, experience, call purpose, investment, and guarantees |
-| 10 | Final CTA | Close one argument | Book the same verified Calendly event |
-| 11 | Footer/legal | Preserve business context | PROMU Music Group Ltd., contact, local legal pages, disclaimer, preview status |
+| 2 | Problem + mentorship change | Mirror the frustration and explain the product | Tutorials, unfinished sessions, and more gear do not identify the next decision; direct feedback does |
+| 3 | Terence credibility | Answer “why this coach?” | Producer/coach, Ableton credential, and existing public experience/credit claims at their documented confidence level |
+| 4 | How it works | Remove process ambiguity | Bring music, identify the bottleneck, get focused direction, apply it, and finish stronger |
+| 5 | Student results | Provide human proof | Three visible video testimonials, three written excerpts, and a non-guarantee note |
+| 6 | Fit + what happens next | Qualify positively and make conversion safe | Producers ready to apply feedback choose a Calendly time, speak with Terence, and decide whether the mentorship fits |
+| 7 | FAQ | Resolve practical objections | Gear, experience, call purpose, investment, and guarantees |
+| 8 | Final CTA | Close one argument | Book the same verified Calendly event |
+| 9 | Footer/legal | Preserve business context | PROMU Music Group Ltd., contact, local legal pages, disclaimer, preview status |
 
 ## Navigation and CTA frequency
 
@@ -45,9 +43,10 @@ Conversion opportunities appear:
 
 1. in the header;
 2. directly below the hero VSL;
-3. after student proof;
-4. after the three next-step instructions;
-5. in the final close.
+3. after Terence’s focused credibility section;
+4. after student proof;
+5. after the three next-step instructions;
+6. in the final close.
 
 The repetition is intentional, but each CTA follows a new persuasion milestone rather than interrupting every section.
 

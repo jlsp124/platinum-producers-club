@@ -8,7 +8,7 @@ References inspected:
 
 - current PPC production funnel and `docs/current-site-audit.md`;
 - current repository redesign and its responsive screenshots;
-- [Creator College](https://creatorcollege.com/) and its currently reachable challenge/coaching sales material;
+- [Creator College VIP](https://creatorcollege.com/c/vip), the currently reachable coaching funnel (the former `/cohort-gr` route now returns a 404);
 - PPC's public [Testimonial.to wall](https://embed-v2.testimonial.to/w/terencepolunlam);
 - official [Testimonial.to single-video guidance](https://help.testimonial.to/en/articles/6223124-embed-a-single-video) and [Mux iframe guidance](https://www.mux.com/docs/guides/player-integrate-in-your-webapp).
 
@@ -16,14 +16,14 @@ References inspected:
 
 | Question | Current PPC production page | Current repository redesign | Creator College reference | PPC revision decision |
 | --- | --- | --- | --- | --- |
-| What is being sold? | Radio/release-ready production mentorship, but the service itself is thinly explained | Mentorship is clearer, but the presentation often becomes the product | One named program or challenge with a plain outcome and defined contents | State private music-production mentorship immediately and keep it as the only offer |
-| First-screen priority | Promise, short credibility line, visible VSL, CTA | Full-canvas campaign image and oversized editorial headline; VSL is a secondary modal action | Offer, outcome, media/coach, and purchase/application action are unmistakable | Logo, outcome-focused headline, short support, prominent 6:48 VSL, one Calendly CTA |
-| Story progression | Simple but incomplete: promise → VSL → problems → fit → proof → application | Editorial chapters: diagnosis → ledger → DAW arrangement → controlled proof → fit → biography | Linear objection handling: problem → mechanism → deliverables → proof → process → offer → FAQ | Use a short vertical argument: problem → mentorship change → coach → process → proof → fit → next step → FAQ → close |
-| Proof | Large external wall, difficult to scan and expensive to load | Four text quotes, one visible at a time | Customer video is visible and repeated; proof appears before and after offer detail | Show three real click-to-load video testimonials at once, then three concise attributed text reviews |
-| CTA behavior | Repeated but currently inert | Correct Calendly links, but the hero offers two equally styled actions | Repeated, visually consistent, and tied to the same purchase/application path | One primary button treatment and the same Calendly destination after the VSL, proof, next-step explanation, and final close |
-| Visual identity | Generic white/purple funnel builder | High-quality but shifts between paper, black, orange, editorial ledgers, and a custom DAW system | Visual design stays subordinate to the offer even when sections are media-rich | Use a premium warm-light PPC identity, subtle surface changes, one restrained signal accent, and one content measure |
-| Navigation | Almost none | Method, Results, Terence, FAQ, plus mobile overlay | Very little escape from the funnel | Keep only a small logo and header CTA; no chapter navigation or mobile menu |
-| Mobile behavior | Severe clipping at 320–390px | Technically robust, but very long and visually dense | One-column media and repeated full-width actions | Design the phone first: readable title, 16:9 VSL, full-width CTA, stacked proof, shorter sections, no sticky story UI |
+| What is being sold? | Radio/release-ready production mentorship, but the service itself is thinly explained | Private music-production mentorship is explicit immediately | One named coaching program with a plain outcome and defined contents | Keep the current offer language and remove anything that delays it |
+| First-screen priority | Promise, short credibility line, visible VSL, oversized CTA | Strong outcome, short support, prominent 6:48 VSL, then a split copy-and-button action row | Offer, outcome, coach video, and one large action are unmistakable | Preserve the current hero; simplify the area below the VSL to one action and one quiet qualifier |
+| Story progression | Compact but incomplete: promise → VSL → three benefits → fit → proof → application | Complete, but the problem and benefit sections repeat the same contrast and extend the page | Long but linear: offer → coach → proof → problem → contents → more proof → price → FAQ | Combine problem and mentorship change; combine qualification and call mechanics; keep the real proof prominent |
+| Proof | Large external wall, difficult to scan and expensive to load | Three real video stories plus three written reviews, all visible | Video proof appears early and repeatedly, with the person and result carrying the visual weight | Keep all six real proof points; shorten video captions and remove metadata-like labels |
+| CTA behavior | Repeated visual CTA, but current links are inert | Correct Calendly links with one visual treatment; header and next-step wording vary | Repeated, large, consistent action tied to the same purchase path | Use “Book your strategy session” consistently and make each CTA follow a persuasion milestone |
+| Visual identity | Crude but unmistakably PPC; high-contrast purple CTAs | Premium warm-light PPC system, but repeated rules, eyebrow labels, and conversion containers can feel editorial or SaaS-like | Mostly neutral typography and real people; decoration rarely competes with the sale | Keep the light system and violet action color; reduce labels, borders, surface shifts, and container styling |
+| Navigation | Almost none | Logo plus sticky CTA only | Very little escape from the funnel | Keep the current restrained header |
+| Mobile behavior | Clear funnel order but coarse styling and an unreliable testimonial embed | Responsive and readable, but longer than necessary and text-heavy between media moments | Clear one-column hierarchy with a full-width VSL and CTA | Preserve the current mobile foundation while reducing vertical copy and dead space |
 
 ## What Creator College does well structurally
 
@@ -43,15 +43,15 @@ References inspected:
 - Its current page length, repeated bonus treatment, and dense seasonal offer detail; PPC has less verified operational content and should be shorter.
 - Claims based on another coach's audience, revenue, or student outcomes.
 
-## Where the current PPC redesign is over-designed
+## Where the current light baseline still needs cleanup
 
-- The full-bleed hero makes Terence's image and art direction more dominant than the VSL and offer.
-- “Listen / Focus / Develop / Finish” is buried inside a sticky DAW/arrangement metaphor that requires interpretation.
-- Eight numbered editorial chapters make the page feel like a magazine feature.
-- The near-black, warm paper, and bright orange environments create multiple visual identities.
-- The testimonial carousel hides three quarters of the proof at any moment.
-- The coach biography repeats credibility already introduced earlier.
-- Scroll progress, mobile menu, arrangement indicators, testimonial controls, modal video, and layered reveals create too many interaction systems for one funnel.
+- The split row below the VSL adds two setup lines, a button, and a second qualifier where one button and one short note would be clearer.
+- The problem and mentorship-benefit sections make the same argument in two consecutive chapters.
+- Every major section uses a small eyebrow label and a very large heading, creating a repeated editorial template instead of natural sales pacing.
+- Terence's credential grid and public claim caveat read like internal audit notes rather than confident customer-facing proof.
+- Video testimonials carry a role label and explanatory paragraph beneath already self-explanatory media.
+- Qualification and call mechanics are separate full sections even though both answer “is this right for me, and what do I do next?”
+- Repeated boxed conversion strips add interface weight that the CTA itself does not need.
 
 ## Existing PPC elements that should return
 
@@ -74,9 +74,9 @@ References inspected:
 
 ## CTA, proof, density, and distraction rules
 
-- CTA frequency: header, immediately after the hero VSL, after student proof, in “what happens next,” and at the final close. All use the exact clean Calendly event URL.
+- CTA frequency: sticky header, immediately after the hero VSL, after Terence/value, after student proof, in the combined fit/next-step section, and at the final close. All use the exact clean Calendly event URL and the same label.
 - Social proof: three visible video cards, three short written reviews, and a clear “individual results vary” note. No carousel and no large third-party wall runtime.
-- Section count: nine homepage sections including hero and final close, plus the footer. Closely related ideas share a section.
+- Section count: eight homepage sections including hero and final close, plus the footer. Problem/value and fit/next-step ideas share sections.
 - Content density: one headline, one short setup, and one dominant proof/explanation device per section. Desktop copy is capped to a readable measure; mobile copy is shortened rather than merely stacked.
 - Conversion distractions removed: chapter numbering, scroll-progress UI, full navigation, mobile menu, DAW interaction, modal primary VSL, testimonial carousel, prolonged biography, secondary offer links, decorative cursor/scroll effects.
 
@@ -84,7 +84,7 @@ References inspected:
 
 Visual thesis: a calm, warm-light studio sales page with near-black type, one deep-violet action color, real media, and enough restraint that the offer—not the interface—feels premium.
 
-Content plan: visible VSL hero → recognize the producer's problem → explain the mentorship → establish Terence → show four simple steps → prove with student video and text → qualify fit → explain the call → answer FAQs → close.
+Content plan: visible VSL hero → recognize the problem and show what mentorship changes → establish Terence → show four simple steps → prove with student video and text → qualify fit and explain the call → answer FAQs → close.
 
 Interaction thesis:
 

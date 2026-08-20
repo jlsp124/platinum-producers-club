@@ -11,10 +11,10 @@ A calm, warm-white studio sales page with near-black typography, one deep-violet
 ### Content plan
 
 1. Outcome, visible VSL, and Calendly action.
-2. Problem recognition and concrete mentorship value.
+2. Problem recognition and concrete mentorship value in one section.
 3. Terence credibility and a four-step process.
-4. Real student video/text proof and qualification.
-5. Call mechanics, FAQ, and final CTA.
+4. Real student video/text proof.
+5. Qualification and call mechanics together, then FAQ and final CTA.
 
 ### Interaction thesis
 
@@ -42,7 +42,7 @@ A calm, warm-white studio sales page with near-black typography, one deep-violet
 | Raised surface | `#FFFDF9` | Media fallback and restrained depth |
 | Text | `#18171D` | Primary copy and black logo treatment |
 | Muted | `#59565D` | Supporting copy |
-| Quiet | `#625E66` | Disclaimers and verification notes; AA-safe on both light surfaces |
+| Quiet | `#625E66` | Short qualifiers and disclaimers; AA-safe on both light surfaces |
 | Accent | `#6841CC` | Primary CTAs, focus, play, and labels |
 | Rule | `rgba(24,23,29,.12)` | Dividers |
 
@@ -54,7 +54,7 @@ The Ableton badge retains its authentic gold artwork; it is evidence, not a seco
 - Hero: `clamp(3rem, 6vw, 5.25rem)` on larger layouts and a separately tested phone scale.
 - Section headings: approximately 36–76px through `clamp()`.
 - Body: 16–18px with 1.5–1.6 line height.
-- Labels: 11–12px uppercase with tracking.
+- Labels: 11–12px uppercase with tracking, used only where they materially improve orientation.
 - Body measures stay near 43rem; the main sales canvas is capped at 76rem.
 
 Headings use tight spacing and balanced wrapping. Copy remains sentence case except for short labels and CTA text.
@@ -63,10 +63,10 @@ Headings use tight spacing and balanced wrapping. Copy remains sentence case exc
 
 - Header: logo plus one strategy-call CTA; no chapter navigation or mobile menu.
 - Hero copy: centred on larger screens, left aligned on phones.
-- Hero offer/VSL measure: maximum 55rem so the VSL and CTA read as one unit.
+- Hero offer/VSL measure: maximum 58rem so the VSL dominates without stretching beyond a comfortable viewing size.
 - Main sales canvas: maximum 76rem with `clamp(16px, 4vw, 48px)` gutters.
-- Major sections: `clamp(76px, 8vw, 128px)` vertical spacing.
-- Sections use plain columns, lists, and 1px rules; card containers are reserved for video players and the small CTA callout.
+- Major sections: `clamp(72px, 7.5vw, 116px)` vertical spacing, reduced again on phone layouts.
+- Sections use plain columns, lists, and 1px rules; card containers are reserved for video players.
 - Radius is capped around 12px and does not become a visual motif.
 
 ## Video
@@ -82,10 +82,10 @@ Headings use tight spacing and balanced wrapping. Copy remains sentence case exc
 Primary CTA:
 
 - solid violet, white text, minimum 44px tap height;
-- wording is “Book your strategy session,” “Book a call,” or “See available times” according to context;
+- wording is “Book your strategy session” everywhere;
 - every instance is a semantic same-tab anchor to the clean Calendly event.
 
-The header, hero, proof, next-step, and final-close CTAs use the same visual/action language. There is no competing secondary offer.
+The header, hero, coach, proof, fit/next-step, and final-close CTAs use the same visual/action language. There is no competing secondary offer.
 
 ## Motion
 

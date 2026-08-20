@@ -12,7 +12,7 @@ See `reference-sales-page-analysis.md` for the concise three-way sales-system co
 
 | Finding | Revised response |
 | --- | --- |
-| Production CTAs are inert | Five normal semantic Calendly anchors use the verified clean event URL and are covered by automated tests |
+| Production CTAs are inert | Six normal semantic Calendly anchors use the verified clean event URL and are covered by automated tests |
 | Primary VSL was secondary in the repository redesign | The 6:48 “VSL new3-FINAL” is the dominant hero media and loads through Vimeo only after click |
 | Offer explanation was buried in editorial storytelling | The first sections plainly name the buyer’s problem and what direct mentorship provides |
 | Sticky DAW/arrangement metaphor required interpretation | Four short static steps explain the process without custom interaction |
@@ -39,8 +39,12 @@ See `reference-sales-page-analysis.md` for the concise three-way sales-system co
 - The VSL replaces a full-bleed campaign image as the hero anchor.
 - The existing PPC wordmark, studio video poster, Terence portrait, and Ableton badge provide brand continuity.
 - One warm-white canvas, near-black type, restrained violet, 1px rules, and capped measures keep the page premium without becoming the experience.
-- Sections use plain grids and lists; card-like framing is limited to media and one conversion callout.
+- Sections use plain grids and lists; card-like framing is limited to media.
 - The final violet close gives the long page one deliberate visual peak.
+
+## Comparison-led cleanup
+
+The current light page was retained as the baseline. Matching 390px, 768px, and 1440px browser captures showed that Creator College was simpler directly beneath its VSL and that old PPC moved from video to benefit points with less copy. The cleanup therefore consolidated problem/value and fit/next-step sections, shortened video-testimonial captions and process copy, removed boxed CTA callouts and the public audit-style claim note, and standardized every CTA label. The page moved closer to old PPC’s pacing without returning to its crude styling or losing the new video proof.
 
 ## Motion and performance
 

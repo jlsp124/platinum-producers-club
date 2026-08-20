@@ -7,8 +7,9 @@ playwright-report/
 test-results/
 reports/lighthouse/*.html
 reports/lighthouse/*.json
+/docs/screenshots/comparison/
+.lighthouse-profile/
 *.log
 .env
 .env.*
 !.env.example
-
