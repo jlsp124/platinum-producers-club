@@ -16,6 +16,8 @@ The release gate is `npm run qa`. It performs:
 
 Final local result: **55 passed, 0 failed, 0 skipped**. `astro check` reported 0 errors, 0 warnings, and 0 hints; generated HTML validation also passed.
 
+Final published result: **55 passed, 0 failed, 0 skipped** against `https://jlsp124.github.io/platinum-producers-club/`. A separate interactive browser pass confirmed desktop and 390px rendering, production canonical plus preview noindex metadata, successful repository-prefixed image loading, and an actual published hero-CTA click landing on `https://calendly.com/terence-p-lam/release-ready-strategy-call`.
+
 The browser suite verifies:
 
 - no horizontal overflow;

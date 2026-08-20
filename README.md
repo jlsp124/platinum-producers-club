@@ -6,6 +6,9 @@ A portfolio-quality static redesign of the Platinum Producers Club music-product
 
 Status: independent public preview. The current production website, production DNS, existing Calendly event, and current funnel service remain separate and untouched.
 
+- [Open the public GitHub Pages preview](https://jlsp124.github.io/platinum-producers-club/)
+- [View the public repository](https://github.com/jlsp124/platinum-producers-club)
+
 ## Purpose
 
 The site replaces a generic funnel-builder presentation with a fast, accessible, editorial experience focused on one conversion: helping a suitable producer reach Terence’s existing Release Ready Strategy Call in Calendly.
