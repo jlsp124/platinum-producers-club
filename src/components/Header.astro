@@ -6,9 +6,10 @@ import { withBase } from "../lib/urls";
 
 interface Props {
   solid?: boolean;
+  showCta?: boolean;
 }
 
-const { solid = false } = Astro.props;
+const { solid = false, showCta = true } = Astro.props;
 ---
 
 <header class:list={["site-header", { "site-header--solid": solid }]} data-site-header>
@@ -23,6 +24,6 @@ const { solid = false } = Astro.props;
         decoding="sync"
       />
     </a>
-    <StrategyLink className="header-cta" label="Book your strategy session" context="header" />
+    {showCta && <StrategyLink className="header-cta" label="Book your free strategy call" context="header" />}
   </div>
 </header>

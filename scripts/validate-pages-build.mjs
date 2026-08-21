@@ -5,7 +5,7 @@ if (!expectedBase.startsWith("/") || expectedBase.length < 2) {
   throw new Error("EXPECTED_BASE_PATH must be a non-root path such as /platinum-producers-club");
 }
 
-const pages = ["dist/index.html", "dist/privacy/index.html", "dist/terms/index.html", "dist/404.html"];
+const pages = ["dist/index.html", "dist/thankyou/index.html", "dist/privacy/index.html", "dist/terms/index.html", "dist/404.html"];
 for (const file of pages) {
   const html = await readFile(file, "utf8");
   const localReferences = [...html.matchAll(/\b(?:href|src)="(\/[^"#?]*)/g)].map((match) => match[1]);

@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 
 export const prerender = true;
 
-const urls = ["/", "/privacy/", "/terms/"];
+const urls = ["/", "/thankyou/", "/privacy/", "/terms/"];
 
 export const GET: APIRoute = () => {
   const lastmod = new Date().toISOString().slice(0, 10);
@@ -16,4 +16,3 @@ ${urls.map((path) => `  <url><loc>https://platinumproducersclub.com${path}</loc>
     headers: { "Content-Type": "application/xml; charset=utf-8" }
   });
 };
-

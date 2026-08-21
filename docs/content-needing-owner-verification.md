@@ -1,12 +1,13 @@
 # Content needing owner verification
 
-These items do not block the preview. They must be confirmed before the redesign is used as the production website.
+Authority update, 2026-08-21: the preview now treats `/release-ready_bio` and `/thankyou` as current owner sources. `/mentor1` and `/mentor2` are historical references only. Items below are legal/rights/operational production checks; they no longer justify substituting older mentor-page messaging or videos.
+
+These items do not block the isolated preview. They must be confirmed before the preview is used as the production website.
 
 ## Credits and credentials
 
-- Confirm the exact wording, role, track names, and permission for the existing claim that Terence “landed songs with Drake, Alessia Cara, and Meghan Trainor.”
-- Confirm whether “15 years of real-world experience” is still the preferred current number and what start date supports it.
-- Confirm Terence’s current Ableton Certified Trainer status and permission/current brand guidance for the supplied badge.
+- Confirm legal/rights approval for the current `/thankyou` wording that names Drake, Alessia Cara, Meghan Trainor, Bella Poarch, and CHIKA.
+- Confirm continued approval of the current “15+ years” and Ableton Certified Trainer wording reproduced from `/thankyou`.
 - Confirm whether “Terence ‘polun’ Lam” is the preferred public styling across the site and Calendly.
 - Confirm whether the visible plaques in the VSL background may be described in copy; the preview does not turn them into written award claims.
 
@@ -22,7 +23,7 @@ These items do not block the preview. They must be confirmed before the redesign
 
 ## Testimonials and results
 
-- Confirm permission to reproduce text, names, dates, profile links, screenshots, and video assets from the Testimonial.to wall outside that widget.
+- Confirm permission to reproduce the selected text, names, posters, and video players from the current `/release-ready_bio` Testimonial.to view outside that widget.
 - Confirm the spelling/styling of every selected testimonial attribution.
 - Confirm reported outcomes before production, especially:
   - D R 3 A’s third-place SKIO contest result;
@@ -42,7 +43,6 @@ These items do not block the preview. They must be confirmed before the redesign
 
 ## Brand and media rights
 
-- Confirm rights to reuse the current Vimeo videos, their posters, the studio portrait, PROMU/PPC marks, and the Ableton badge in a public GitHub repository and replacement website.
+- Confirm rights to reuse current sales Vimeo `1137317543`, pre-call Vimeo `1105995692`, their posters, the current studio portrait, and PROMU/PPC marks in a public GitHub repository and replacement website.
 - Confirm whether the FC Barcelona hoodie visible in the VSL poster is acceptable for the final hero art direction.
 - Confirm whether any artist/brand/award marks visible in photos need clearance, cropping, or replacement.
-

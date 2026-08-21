@@ -4,6 +4,10 @@ import path from "node:path";
 
 const baseUrl = process.env.QA_BASE_URL || "http://127.0.0.1:4321";
 const outputDirectory = path.resolve("docs/screenshots/qa");
+const routes = [
+  { name: "homepage", path: "/" },
+  { name: "thankyou", path: "/thankyou/" }
+];
 const viewports = [
   { name: "desktop-1440", width: 1440, height: 1000, deviceScaleFactor: 1 },
   { name: "large-desktop-1728", width: 1728, height: 1000, deviceScaleFactor: 1 },
@@ -27,38 +31,42 @@ try {
       reducedMotion: "reduce"
     });
     const page = await context.newPage();
-    await page.goto(baseUrl, { waitUntil: "networkidle" });
 
-    await page.screenshot({
-      path: path.join(outputDirectory, `${viewport.name}-hero.png`),
-      fullPage: false
-    });
+    for (const route of routes) {
+      const url = new URL(route.path.replace(/^\//, ""), `${baseUrl.replace(/\/$/, "")}/`);
+      await page.goto(url.toString(), { waitUntil: "networkidle" });
 
-    await page.evaluate(async () => {
-      const distance = Math.max(1, Math.floor(window.innerHeight * 0.75));
-      for (let y = 0; y < document.documentElement.scrollHeight; y += distance) {
-        window.scrollTo(0, y);
-        await new Promise((resolve) => setTimeout(resolve, 35));
-      }
-      window.scrollTo(0, 0);
-    });
-    // Require every local and provider-hosted image to finish after the scroll
-    // pass so the saved review evidence reflects the real media.
-    await page.waitForFunction(
-      () => Array.from(document.images).every((image) => image.complete && image.naturalWidth > 0),
-      undefined,
-      { timeout: 10_000 }
-    );
-    await page.waitForTimeout(250);
+      await page.screenshot({
+        path: path.join(outputDirectory, `${route.name}-${viewport.name}-hero.png`),
+        fullPage: false
+      });
 
-    await page.screenshot({
-      path: path.join(outputDirectory, `${viewport.name}-full.png`),
-      fullPage: true
-    });
+      await page.evaluate(async () => {
+        const distance = Math.max(1, Math.floor(window.innerHeight * 0.75));
+        for (let y = 0; y < document.documentElement.scrollHeight; y += distance) {
+          window.scrollTo(0, y);
+          await new Promise((resolve) => setTimeout(resolve, 35));
+        }
+        window.scrollTo(0, 0);
+      });
+      // Require every local and provider-hosted image to finish after the scroll
+      // pass so the saved review evidence reflects the real media.
+      await page.waitForFunction(
+        () => Array.from(document.images).every((image) => image.complete && image.naturalWidth > 0),
+        undefined,
+        { timeout: 10_000 }
+      );
+      await page.waitForTimeout(250);
+
+      await page.screenshot({
+        path: path.join(outputDirectory, `${route.name}-${viewport.name}-full.png`),
+        fullPage: true
+      });
+    }
     await context.close();
   }
 } finally {
   await browser.close();
 }
 
-console.log(`Saved ${viewports.length * 2} QA screenshots to ${outputDirectory}`);
+console.log(`Saved ${viewports.length * routes.length * 2} QA screenshots to ${outputDirectory}`);

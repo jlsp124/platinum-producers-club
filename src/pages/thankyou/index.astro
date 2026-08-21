@@ -1,0 +1,102 @@
+---
+import { Picture } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import { media } from "../../data/site";
+import terencePortrait from "../../assets/source/current-05.png";
+---
+
+<BaseLayout
+  title="Your Strategy Call Is Booked — Platinum Producers Club"
+  description="Watch the pre-call video and prepare for your Release Ready Strategy Call with Terence Lam."
+  canonicalPath="/thankyou/"
+  bodyClass="thankyou-page"
+>
+  <Header showCta={false} />
+
+  <main id="main-content">
+    <section class="thankyou-hero" aria-labelledby="thankyou-title">
+      <div class="page-shell thankyou-hero__inner">
+        <header class="thankyou-hero__copy">
+          <p class="kicker" data-reveal>Strategy call confirmed</p>
+          <h1 id="thankyou-title" data-reveal>Your strategy call is booked.</h1>
+          <p class="thankyou-hero__instruction" data-reveal>Please watch the entire video before our call.</p>
+          <p class="thankyou-hero__support" data-reveal>It will help us skip the basics and make better use of our time together.</p>
+        </header>
+
+        <div class="provider-video provider-video--precall" data-provider-video data-reveal>
+          <button
+            class="provider-video__poster"
+            type="button"
+            aria-label="Play Terence's pre-call video"
+            data-player-open
+            data-player-title="Prepare for your strategy call"
+            data-player-src={media.preCallVideo.embedUrl}
+          >
+            <img
+              src={media.preCallVideo.poster}
+              alt="Terence Lam in the pre-call video"
+              width="1280"
+              height="720"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              referrerpolicy="strict-origin-when-cross-origin"
+            />
+            <span class="provider-video__shade" aria-hidden="true"></span>
+            <span class="provider-video__play" aria-hidden="true"><i></i></span>
+            <span class="provider-video__label"><strong>Watch before your call</strong></span>
+          </button>
+          <noscript><p><a href={media.preCallVideo.publicUrl}>Watch the pre-call video on Vimeo</a></p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section" aria-labelledby="about-title">
+      <div class="page-shell about-section__grid">
+        <figure class="coach-portrait" data-reveal>
+          <Picture
+            src={terencePortrait}
+            formats={["avif", "webp"]}
+            widths={[320, 500]}
+            sizes="(min-width: 900px) 430px, calc(100vw - 2rem)"
+            alt="Terence Lam producing music at a studio keyboard"
+            loading="lazy"
+            quality={88}
+          />
+        </figure>
+
+        <div class="about-section__copy" data-reveal>
+          <p class="kicker">Your call is with Terence</p>
+          <h2 id="about-title">Hey, I’m Terence.</h2>
+          <p>I’m a Top 40 music producer, songwriter, and Ableton Certified Trainer with 15+ years in the industry.</p>
+          <p>I’ve worked with artists including Drake, Alessia Cara, Meghan Trainor, Bella Poarch, and CHIKA. Now I help producers make professional, release-ready music.</p>
+          <p>I started by experimenting with Fruity Loops as a kid. Mentors and the right collaborations showed me what matters in making strong songs—and that is what I now pass on to other producers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="call-section section" aria-labelledby="call-title">
+      <div class="page-shell call-section__grid">
+        <header class="section-heading" data-reveal>
+          <p class="kicker">Before we speak</p>
+          <h2 id="call-title">Three simple things.</h2>
+          <p>This is a real 45-minute, one-to-one call with Terence.</p>
+        </header>
+
+        <ol class="prep-list" data-reveal>
+          <li><span>01</span><div><strong>Watch the full video.</strong><p>It gives you the context we need before the call.</p></div></li>
+          <li><span>02</span><div><strong>Check your confirmation.</strong><p>Your web-conferencing details are provided after booking.</p></div></li>
+          <li><span>03</span><div><strong>Be there at your chosen time.</strong><p>Please only hold a time you are certain you can attend.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="thankyou-close">
+      <div class="page-shell" data-reveal>
+        <p class="kicker">That’s it</p>
+        <h2>Watch the video. We’ll see you on the call.</h2>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

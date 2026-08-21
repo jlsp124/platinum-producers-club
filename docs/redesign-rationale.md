@@ -1,65 +1,47 @@
-# Redesign rationale
+# Reduction rationale
 
-## Owner-review correction
+## Owner direction
 
-Terence’s direct review established that the earlier redesign was attractive but too scattered and over-designed for the business goal. Platinum Producers Club is a single-offer mentorship sales page, not a personal-brand editorial site.
+Terence approved the current light feel and asked for less information, one focus, the updated video, and a separate post-booking page. This revision therefore keeps the established warm-light PPC system and changes the content architecture rather than inventing another visual concept.
 
-The Steven Bartlett direction was a category error for PPC and is deferred to a possible future Terence Lam personal website. Creator College informed the revised sales discipline—one offer, visible media, linear argument, concrete value, human credibility, proof, repeated action, and FAQ—without donating branding, copy, proprietary assets, code, layouts, urgency, guarantees, or pricing mechanics.
+## What changed
 
-See `reference-sales-page-analysis.md` for the concise three-way sales-system comparison.
-
-## Audit finding → revised response
-
-| Finding | Revised response |
+| Before | Now |
 | --- | --- |
-| Production CTAs are inert | Six normal semantic Calendly anchors use the verified clean event URL and are covered by automated tests |
-| Primary VSL was secondary in the repository redesign | The 6:48 “VSL new3-FINAL” is the dominant hero media and loads through Vimeo only after click |
-| Offer explanation was buried in editorial storytelling | The first sections plainly name the buyer’s problem and what direct mentorship provides |
-| Sticky DAW/arrangement metaphor required interpretation | Four short static steps explain the process without custom interaction |
-| Section numbering made the page a magazine feature | Functional labels replace editorial chapters; only the actual process uses step numbers |
-| Dark/light/orange systems felt stitched together | One warm-light system with subtle surface changes and one violet action color runs through the page |
-| Testimonial carousel hid proof | Three real provider-hosted video testimonials and three written excerpts are visible in sequence |
-| Large external wall was heavy and visually inconsistent | Curated Mux players instantiate only on click; no video is downloaded or rehosted |
-| Terence story was too broad | One short coach section answers why he is relevant to this mentorship |
-| High-friction 14-step application | Fit and FAQ retain qualification intent; Calendly remains the only scheduling/data surface |
-| Old mobile funnel clipped at 320–390px | Phone-first layout is tested at 320, 375, 390, and 430px plus tablet/desktop targets |
-| Broken legal host and weak SEO | Existing local legal recovery, preview noindex, canonical, sitemap, robots, and migration controls remain intact |
+| 706 rendered homepage words | 234 rendered homepage words |
+| Eight homepage sections | Five homepage sections |
+| Six Calendly CTAs | Three Calendly CTAs |
+| Historical `/mentor` VSL | Current `/release-ready_bio` Vimeo `1137317543` |
+| Biography and credits before booking | Biography and credits on `/thankyou/` |
+| Four-step methodology | Removed |
+| Detailed features, fit, next steps, FAQ | Three value points and three fit bullets |
+| Historical testimonial video selection | Three videos from the current sales-page Testimonial.to view |
+| No converted-visitor route | Dedicated `/thankyou/` with current pre-call Vimeo `1105995692` |
 
-## Sales and copy decisions
+The homepage main-content word count fell by 66.9%. At 390px, rendered page height fell from 7,556px to approximately 4,790px while proof remains the largest section.
 
-- The strongest promise is finishing music the producer is proud to release—not guaranteed charts, placements, or income.
-- The page preserves the old funnel’s useful school/tutorial/gear logic without its unsupported scarcity line.
-- Mentorship is made concrete through direct feedback, individual direction, next steps, workflow guidance, and accountability.
-- Existing experience, artist, Ableton, and student claims remain at or below their current public strength and stay on the owner-verification checklist.
-- Video-only testimonials are not assigned invented spoken outcomes. Cedrick and Kim context is explicitly tied to separately published written reviews.
-- The call is described as a fit conversation, not acceptance or a guaranteed coaching outcome.
+## Sales discipline
 
-## Visual decisions
+Creator College was used only as a simplicity benchmark: one obvious offer, strong media, real humans, consistent action, and a vertical flow that needs no explanation. No Creator College branding, copy, code, pricing, guarantees, urgency, or layout was copied.
 
-- The VSL replaces a full-bleed campaign image as the hero anchor.
-- The existing PPC wordmark, studio video poster, Terence portrait, and Ableton badge provide brand continuity.
-- One warm-white canvas, near-black type, restrained violet, 1px rules, and capped measures keep the page premium without becoming the experience.
-- Sections use plain grids and lists; card-like framing is limited to media.
-- The final violet close gives the long page one deliberate visual peak.
+The sales page now answers only:
 
-## Comparison-led cleanup
+1. What outcome is being offered?
+2. Why does the mentorship exist?
+3. Has it helped real people?
+4. Is this broadly for me?
+5. Where do I book?
 
-The current light page was retained as the baseline. Matching 390px, 768px, and 1440px browser captures showed that Creator College was simpler directly beneath its VSL and that old PPC moved from video to benefit points with less copy. The cleanup therefore consolidated problem/value and fit/next-step sections, shortened video-testimonial captions and process copy, removed boxed CTA callouts and the public audit-style claim note, and standardized every CTA label. The page moved closer to old PPC’s pacing without returning to its crude styling or losing the new video proof.
+Everything else is either removed or moved after conversion.
 
-## Motion and performance
+## Visual continuity
 
-Motion is limited to short reveal, button, media-hover, and FAQ transitions. Removed systems include scroll progress, sticky storytelling, carousel motion, modal video, chapter transitions, and menu animation.
+- Existing cream surfaces, near-black Archivo typography, restrained violet, PPC wordmark, 1px rules, generous whitespace, and real media remain.
+- The current VSL thumbnail replaces the historical poster.
+- Media is the only card-like framing.
+- Motion remains limited to brief reveals, player/CTA feedback, and reduced-motion-safe behavior.
+- No dark-mode pivot, navigation system, new component language, carousel, or decorative interaction was added.
 
-The primary Vimeo and three Mux players are click-to-load. Initial rendering remains static Astro HTML/CSS with local font and optimized owner imagery. No animation or UI runtime is added.
+## Thank-you page rationale
 
-## Technical continuity
-
-The revision preserves:
-
-- Astro static project structure and TypeScript;
-- GitHub Pages workflow and repository base-path handling;
-- responsive image generation and local font serving;
-- semantic headings, skip link, focus states, reduced motion, and axe tests;
-- Calendly URL/UTM handling;
-- legal pages, canonical/social metadata, robots, sitemap, and preview noindex guard;
-- responsive screenshot tooling, Playwright validation, migration documents, and Git history.
+The thank-you page is intentionally personal but not another sales page. It confirms the call, places the current pre-call video first, introduces Terence using the owner’s current public wording, and lists only what the live Calendly event verifies: a real 45-minute 1:1 call, confirmation-based web-conferencing details, and attendance at the chosen time.

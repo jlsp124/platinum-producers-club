@@ -1,6 +1,8 @@
-# Platinum Producers Club — current-site audit
+# Platinum Producers Club — historical funnel audit
 
-Audit date: 2026-08-19 (America/Vancouver)
+> Authority update, 2026-08-21: Terence identified `/release-ready_bio` as the current sales-content and VSL source and `/thankyou` as the current converted-visitor/pre-call source. The `/mentor1` and `/mentor2` material below is retained for historical funnel context only. See `current-authoritative-content.md` for the current message, video IDs, proof selection, biography, and Calendly facts.
+
+Historical audit date: 2026-08-19 (America/Vancouver)
 
 Production audited: `https://platinumproducersclub.com/`
 

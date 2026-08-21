@@ -1,77 +1,84 @@
 # Testing and performance report
 
-Date: 2026-08-20 (America/Vancouver)
+Date: 2026-08-21 (America/Vancouver)
 
-This report covers the separate static Platinum Producers Club redesign preview. It is not evidence that the production domain, DNS, Calendly configuration, analytics, or a complete booking flow has been changed.
+This report covers the isolated GitHub Pages preview. It is not evidence that production DNS, the production website, Calendly settings, tracking, or redirects were changed.
 
-## Automated validation
+## Automated gate
 
-The release gate is `npm run qa`. It performs:
+`npm run qa` completed successfully:
 
-1. generated favicon and social-asset validation;
-2. `astro check` and a production static build;
-3. HTML validation over every generated HTML document;
-4. Playwright Chromium tests at 1440×1000, 1728×1000, 768×1024, 1024×768, 430×932, 390×844, 375×812, and 320×700;
-5. axe WCAG 2 A/AA and 2.1 A/AA checks at every viewport.
+- Astro check: 0 errors, 0 warnings, 0 hints
+- Static production build: passed; `/thankyou/` generated
+- Generated HTML validation: passed
+- Playwright/axe: **104 passed, 0 failed, 0 skipped**
 
-Final local result: **88 passed, 0 failed, 0 skipped**. `astro check` reported 0 errors, 0 warnings, and 0 hints; generated HTML validation and the `/platinum-producers-club` Pages base-path/noindex validation also passed.
+Every browser test runs at:
 
-The browser suite verifies:
+- 320×700
+- 375×812
+- 390×844
+- 430×932
+- 768×1024
+- 1024×768
+- 1440×1000
+- 1728×1000
 
-- the page presents one focused offer without horizontal overflow or broken responsive images;
-- every application CTA resolves to the verified Calendly event;
-- only Calendly-supported UTM parameters are forwarded;
-- CTA activation emits a local, privacy-conscious `ppc:calendly-click` event without sending data or inventing an analytics ID;
-- the primary Vimeo VSL is visible in the hero and loads only after an explicit click;
-- three real Mux-hosted testimonial videos are available and each player loads only when selected;
-- the header has no distracting navigation or mobile-menu state;
-- FAQ disclosure behavior remains predictable;
-- local legal/document routes return successful direct responses;
-- no console errors, failed same-origin requests, or same-origin 4xx/5xx responses;
-- reduced-motion content remains visible and effectively transition-free;
-- skip-link and keyboard focus behavior.
+Both `/` and `/thankyou/` are exercised across the matrix. The suite verifies:
 
-The GitHub workflow repeats the complete gate before deployment, then rebuilds with the repository base path and verifies that every local asset and page reference carries that prefix.
+- no horizontal overflow or broken images;
+- homepage maximum of five sections and 320 main-content words;
+- exact current headline and CTA wording;
+- three clean Calendly links on the sales page and none on `/thankyou/`;
+- supported UTM forwarding only;
+- current sales Vimeo `1137317543` and absence of historical VSL `1050034975`;
+- current pre-call Vimeo `1105995692` / `b7a12ad4e6` and separation from the sales VSL;
+- three current Testimonial.to/Mux videos and click-to-load behavior;
+- direct-load resolution for all same-origin links;
+- no local console errors, failed requests, or 4xx/5xx responses;
+- axe WCAG 2 A/AA and 2.1 A/AA checks;
+- skip-link/focus behavior and reduced-motion behavior.
 
-## Lighthouse
+## Content-density evidence
 
-Measured against the final production static build on localhost with Lighthouse 13.4.1 and Chromium 151. Scores are lab measurements, not field Core Web Vitals.
+The previously deployed light homepage measured:
 
-| Profile | Performance | Accessibility | Best practices | SEO | FCP | LCP | TBT | CLS | Initial transfer |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Mobile | 99 | 100 | 100 | 69 | 1.4 s | 2.0 s | 0 ms | 0 | 180 KiB |
-| Desktop | 100 | 100 | 100 | 69 | 0.3 s | 0.4 s | 10 ms | 0 | 205 KiB |
+- 706 rendered main-content words
+- eight main sections
+- six Calendly CTAs
+- approximately 7,556px page height at 390×844
 
-The preview SEO score of 69 is intentional: both the meta robots directive and `robots.txt` prevent GitHub Pages from competing with the current production site. Titles, descriptions, canonical production URLs, Open Graph/Twitter metadata, favicon, sitemap, semantic headings, and production-mode indexing behavior remain implemented. Set `PUBLIC_SITE_MODE=production` only during an approved production cutover.
+The revised homepage measures:
+
+- 234 rendered main-content words
+- five main sections
+- three Calendly CTAs
+- approximately 4,790px page height at 390×844
+
+That is a **66.9% reduction in main-content words** and an approximately **36.6% reduction in 390px page height**. The revised `/thankyou/` measures 185 main-content words, four sections, no Calendly CTA, and approximately 3,104px total page height at 390×844.
+
+## Screenshot evidence
+
+`npm run screenshots` saved 32 fresh route-specific screenshots: hero and full page for both routes at all eight widths.
+
+Key files:
+
+- `docs/screenshots/qa/homepage-desktop-1440-full.png`
+- `docs/screenshots/qa/homepage-iphone-390-hero.png`
+- `docs/screenshots/qa/homepage-iphone-390-full.png`
+- `docs/screenshots/qa/thankyou-desktop-1440-full.png`
+- `docs/screenshots/qa/thankyou-iphone-390-hero.png`
+- `docs/screenshots/qa/thankyou-iphone-390-full.png`
+- matching 320, 375, 430, 768, 1024, and 1728 captures
+
+Manual screenshot review confirmed that the 390px sales hero contains the complete promise, current VSL poster, and CTA within the first viewport; proof is the largest remaining section; and the thank-you hero prioritizes confirmation and pre-call playback.
 
 ## Performance decisions
 
-- Astro produces static HTML and CSS; the small interaction script is inlined and no UI or animation runtime is shipped.
-- The 6:48 owner-controlled Vimeo VSL is impossible to miss visually, but its iframe and player runtime do not load until the visitor clicks the poster.
-- The three owner-controlled Mux testimonial players use provider thumbnails and do not instantiate until selected.
-- Archivo is self-hosted to avoid third-party font latency and privacy exposure.
-- Local images are delivered through responsive AVIF/WebP derivatives with explicit dimensions or aspect ratios.
-- Motion is limited to opacity/transform reveals and button feedback, and is removed under reduced-motion.
-- The generated `dist/` contains 32 files and about 1.16 MiB across all responsive variants; roughly 180–205 KiB transfers on the initial view.
+- Static Astro HTML/CSS and a small progressive-enhancement script.
+- Locally served variable font and optimized local owner portrait/logo.
+- Current Vimeo and Mux players instantiate only after a visitor presses play.
+- No UI framework, carousel, third-party testimonial wall runtime, client-side router, analytics ID, or scheduler embed ships.
+- Remote provider thumbnails are the deliberate tradeoff for recognizable current video proof without initial player downloads.
 
-The deliberate tradeoff is allowing lightweight provider thumbnail requests for the proof videos below the fold. This lets visitors recognize that the stories are real video testimonials without paying the cost of three full players on initial load.
-
-## Screenshot review loop
-
-Before-redesign captures live in `docs/screenshots/before/`; final redesign captures live in `docs/screenshots/qa/`.
-
-Ten meaningful visual refinement passes have now been completed cumulatively, including three comparison-led cleanup passes in this revision. Each cleanup pass captured both the hero and complete page at all eight target widths (16 current final images):
-
-- 1440px and 1728px desktop;
-- 768px and 1024px tablet;
-- 430px, 390px, and 375px phones;
-- 320px narrow phone.
-
-The latest loop compared the current preview, Creator College VIP, and old PPC at matching 390px, 768px, and 1440px viewports. It consolidated overlapping problem/value and fit/next-step sections, removed boxed conversion treatment and public audit-style notes, shortened process and proof copy, standardized CTA labels, tightened the phone hero, and caught and fixed a final 9px intrinsic-width overflow at 320px. Matching comparison captures are generated locally by `npm run screenshots:comparison` under the ignored `docs/screenshots/comparison/{before,after}/` folders so third-party page media is not committed.
-
-## Manual/live checks still required at production migration
-
-- Real-device Safari testing is recommended because this run used Chromium automation.
-- A completed Calendly booking, reminder, meeting link, reschedule, and cancellation flow requires owner permission and must happen during migration QA.
-- Production analytics and consent require owner account and ID decisions.
-- Field Core Web Vitals require real production traffic.
+No new Lighthouse score is claimed for this revision; the full build, rendered media, responsive, accessibility, link, request, console, and repository-path gates are the release evidence recorded here.

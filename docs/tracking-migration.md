@@ -1,8 +1,8 @@
 # Tracking migration
 
-## Current production detection
+## Historical production detection
 
-The mentor variants currently load:
+The historical mentor variants loaded during the 2026-08-19 audit:
 
 - Meta Pixel ID `1574537226585306`.
 - Meta `PageView` on load.
@@ -39,9 +39,10 @@ Values are length-limited and only appended in the browser; if JavaScript fails,
 | Event | Meaning | Conversion level |
 | --- | --- | --- |
 | `strategy_call_click` | Visitor activates a Calendly CTA | Micro-conversion / outbound intent |
-| `overview_video_play` | Visitor opens the Vimeo overview | Engagement |
-| `testimonial_change` | Visitor manually explores proof | Engagement |
-| `faq_open` | Visitor opens an objection/answer | Diagnostic engagement |
+| `sales_vsl_play` | Visitor opens current Vimeo `1137317543` | Engagement |
+| `testimonial_play` | Visitor opens one selected Mux student video | Engagement |
+| `pre_call_video_play` | Booked visitor opens current Vimeo `1105995692` | Post-conversion preparation |
+| `thankyou_view` | Booked visitor reaches the first-party thank-you page | Redirect diagnostic, not booking proof by itself |
 | `calendly_event_scheduled` | Calendly confirms an appointment | Primary conversion |
 
 A CTA click is not a completed booking. The production KPI should be the Calendly scheduled-event confirmation, with outbound clicks used only as a funnel step.
@@ -52,7 +53,7 @@ A CTA click is not a completed booking. The production KPI should be the Calendl
 - Confirm the analytics platform for the replacement (GA4, privacy-focused analytics, Meta only, or none).
 - Confirm consent/cookie requirements with legal advice for target regions.
 - Confirm whether Calendly’s current plan/integrations can expose scheduled-event events to the selected analytics stack.
-- Confirm whether Calendly should redirect to a first-party thank-you page after booking.
+- Configure the approved Calendly redirect to `https://platinumproducersclub.com/thankyou` only during production migration; exact steps are in `production-migration-checklist.md`.
 - Confirm Meta domain verification, Aggregated Event Measurement, and desired conversion event before ads are moved.
 - Confirm UTM naming conventions and test them through one permitted end-to-end booking.
 
@@ -67,4 +68,3 @@ A CTA click is not a completed booking. The production KPI should be the Calendl
 7. Confirm UTMs appear in the Calendly booking/export/integration.
 8. Confirm ad-platform events in their diagnostic tools.
 9. Remove test bookings/data according to owner-approved procedures.
-

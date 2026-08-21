@@ -1,119 +1,66 @@
 # Design system
 
-## Direction after owner review
+## Visual thesis
 
-Platinum Producers Club is a single-purpose mentorship sales page. The earlier Steven Bartlett/personal-brand direction is deferred to a possible future Terence Lam personal website.
+A calm, warm-light studio funnel with near-black type, one deep-violet action color, real owner media, and enough whitespace that the offer—not the interface—feels premium.
 
-### Visual thesis
+## Page plans
 
-A calm, warm-white studio sales page with near-black typography, one deep-violet action color, real video, and enough restraint that the offer—not the interface—feels premium.
+- Sales page: current promise and VSL → three-point value → selected proof → short fit → final CTA.
+- Thank-you page: confirmation and current pre-call video → Terence → three preparation items → quiet close.
 
-### Content plan
+## Interaction thesis
 
-1. Outcome, visible VSL, and Calendly action.
-2. Problem recognition and concrete mentorship value in one section.
-3. Terence credibility and a four-step process.
-4. Real student video/text proof.
-5. Qualification and call mechanics together, then FAQ and final CTA.
-
-### Interaction thesis
-
-1. A short hero/section reveal establishes hierarchy without delaying the message.
+1. A brief entrance sequence establishes hierarchy without delaying the message.
 2. Video posters have one obvious play action and create provider players only after click.
-3. Button and FAQ feedback is fast and functional; reduced motion receives the same content immediately.
+3. Button/media feedback is fast and functional; reduced-motion visitors receive content immediately.
 
-## Principles
-
-- One offer, one audience, one primary action.
-- The VSL is the first dominant visual.
-- Every section explains, proves, qualifies, or converts.
-- One cohesive environment; no chapter-by-chapter art-direction changes.
-- Real people and media carry trust.
-- Rules, alignment, type, and spacing create structure before cards or effects.
-- Important proof is visible without carousel controls.
-- The page remains complete if JavaScript or animation is unavailable.
-
-## Color
+## Tokens
 
 | Token | Value | Use |
 | --- | --- | --- |
 | Background | `#F8F6F1` | Main canvas and translucent header |
-| Surface | `#F0EDE6` | Subtle section separation |
-| Raised surface | `#FFFDF9` | Media fallback and restrained depth |
-| Text | `#18171D` | Primary copy and black logo treatment |
+| Surface | `#F0EDE6` | Proof/about separation |
+| Raised | `#FFFDF9` | Value/fit/call sections |
+| Text | `#18171D` | Primary copy and logo treatment |
 | Muted | `#59565D` | Supporting copy |
-| Quiet | `#625E66` | Short qualifiers and disclaimers; AA-safe on both light surfaces |
-| Accent | `#6841CC` | Primary CTAs, focus, play, and labels |
+| Accent | `#6841CC` | CTAs, labels, play and focus |
 | Rule | `rgba(24,23,29,.12)` | Dividers |
 
-The Ableton badge retains its authentic gold artwork; it is evidence, not a second interface accent.
+Typography is self-hosted Archivo Variable. Hero headings use tight display spacing, body copy remains 16–18px, labels are short uppercase orientation cues, and copy measures stay narrow.
 
-## Typography
+## Composition
 
-- Family: Archivo Variable, self-hosted under the SIL Open Font License.
-- Hero: `clamp(3rem, 6vw, 5.25rem)` on larger layouts and a separately tested phone scale.
-- Section headings: approximately 36–76px through `clamp()`.
-- Body: 16–18px with 1.5–1.6 line height.
-- Labels: 11–12px uppercase with tracking, used only where they materially improve orientation.
-- Body measures stay near 43rem; the main sales canvas is capped at 76rem.
-
-Headings use tight spacing and balanced wrapping. Copy remains sentence case except for short labels and CTA text.
-
-## Composition and spacing
-
-- Header: logo plus one strategy-call CTA; no chapter navigation or mobile menu.
-- Hero copy: centred on larger screens, left aligned on phones.
-- Hero offer/VSL measure: maximum 58rem so the VSL dominates without stretching beyond a comfortable viewing size.
-- Main sales canvas: maximum 76rem with `clamp(16px, 4vw, 48px)` gutters.
-- Major sections: `clamp(72px, 7.5vw, 116px)` vertical spacing, reduced again on phone layouts.
-- Sections use plain columns, lists, and 1px rules; card containers are reserved for video players.
-- Radius is capped around 12px and does not become a visual motif.
+- Minimal sticky header: logo plus one CTA on the sales page; logo only after conversion.
+- Current VSL is the dominant sales-page object.
+- Main canvas is capped at 76rem; primary video is capped at 58rem.
+- Sections use plain columns, lists, and rules. Media alone receives a framed surface.
+- The violet final close is the only large accent field on the sales page.
+- Thank-you closes in near-black to distinguish preparation from sales conversion.
 
 ## Video
 
-- Primary VSL: local optimized 16:9 poster, clear play control, supported Vimeo iframe created on click, no audio autoplay on load.
-- Student proof: three public provider-hosted Mux posters and supported Mux iframe players created on click.
-- Provider iframes replace the poster in place and preserve the 16:9 footprint.
-- Remote video files are not downloaded or rehosted.
-- Poster alt text, button labels, iframe titles, focus treatment, and no-JavaScript links preserve access.
+- Sales VSL: current Vimeo `1137317543`, current Vimeo thumbnail, click-to-load iframe.
+- Pre-call video: current Vimeo `1105995692` / `b7a12ad4e6`, separate current thumbnail, click-to-load iframe.
+- Proof: three current Testimonial.to/Mux videos, provider posters, click-to-load players.
+- No video is downloaded or rehosted.
 
 ## CTA hierarchy
 
-Primary CTA:
-
-- solid violet, white text, minimum 44px tap height;
-- wording is “Book your strategy session” everywhere;
-- every instance is a semantic same-tab anchor to the clean Calendly event.
-
-The header, hero, coach, proof, fit/next-step, and final-close CTAs use the same visual/action language. There is no competing secondary offer.
-
-## Motion
-
-- Hero entrance: opacity plus a short vertical move, 600ms maximum.
-- Section reveal: one transition per semantic group.
-- Media hover: maximum 1.018 scale.
-- CTA hover: 2px lift and 3px arrow travel.
-- FAQ plus/minus: 180ms rotation.
-
-Removed: scroll progress, sticky DAW sequence, carousel transitions, modal VSL, chapter animation, and continuous decorative motion.
-
-Under `prefers-reduced-motion: reduce`, reveals render immediately, scrolling is not smoothed, autoplay is disabled, and transitions collapse to an effectively instant duration.
+Every sales CTA says “Book your free strategy call” and links to the clean Calendly event. It appears only in the header, hero, and final close. The thank-you page has no CTA.
 
 ## Responsive behavior
 
-- 320–430px: compact header, left-aligned hero, full-width 16:9 VSL, full-width conversion buttons, vertical problem/process/proof lists, no horizontal controls.
-- 768px: one-column explanatory sections where reading order matters; process and video proof can use two columns without compression.
-- 1024px: full three-video proof row and compact two-column sales sections.
-- 1440–1728px: content remains capped; whitespace grows without stretching copy or media.
+- 320–430px: compact header, left-aligned hero, full-width media/CTA, single-column proof and lists.
+- 768px: stacked explanation and proof where needed; no compressed three-column copy.
+- 1024px+: capped media and stable two-/three-column layouts.
+- 390px receives special first-viewport and full-page review.
 
-The automated matrix covers 320, 375, 390, 430, 768, 1024, 1440, and 1728px.
+The automated matrix covers 320, 375, 390, 430, 768, 1024, 1440, and 1728px on both funnel routes.
 
-## Accessibility
+## Accessibility and motion
 
-- One `h1`, logical heading sequence, landmarks, and skip link.
-- Visible `:focus-visible` treatment for every control.
-- Minimum 44px interactive targets.
-- Native `<details>` FAQs and real links.
-- Play buttons have explicit accessible names; created iframes have titles.
-- No color-only meaning, hover-only content, scroll locking, or autoplay audio.
-- No content is hidden behind an interaction except media playback itself.
+- One `h1` per page, logical heading order, landmarks, skip link, visible focus, and 44px+ primary targets.
+- Players have explicit button names, poster alt text, iframe titles, and no-JavaScript fallbacks.
+- No autoplay audio, hover-only information, scroll lock, carousel controls, or color-only meaning.
+- Reveals are opacity/translate only; `prefers-reduced-motion` removes movement and player autoplay.
